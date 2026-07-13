@@ -532,6 +532,90 @@
       "type": "ignore",
       "system": "",
       "parentBody": ""
+    },
+    "rock01_unoc_001_size03_002_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size06_001_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size06_002_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size05_001_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size04_002_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size03_003_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_vlk_001_001_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size06_003_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size02_004_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size06_004_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size05_002_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size05_004_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "util cmpd wrhse lge 001 rund c final int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "LOCATION_2610496815": {
+      "name": "Orbiting",
+      "type": "moon",
+      "system": "Stanton",
+      "parentBody": "Daymar"
     }
   },
   "customShipNames": {
@@ -626,7 +710,8 @@
     "AEGS_Vanguard_PU_AI_UEE": "Aegis Vanguard PU AI UEE",
     "ANVL_Hurricane_PU_AI_UEE": "Anvil Hurricane PU AI UEE",
     "ANVL_Hornet_F7C_Mk2": "Anvil Hornet F7C Mk2",
-    "GRIN_MDC": "GRIN MDC"
+    "GRIN_MDC": "GRIN MDC",
+    "MRAI_Guardian_QI": "MRAI Guardian QI"
   },
   "customPatterns": [],
   "patternOverrides": {},
