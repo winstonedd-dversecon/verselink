@@ -624,7 +624,9 @@
     "DRAK_Buccaneer": "Drake Buccaneer",
     "MRAI_Pulse_LX": "MRAI Pulse LX",
     "AEGS_Vanguard_PU_AI_UEE": "Aegis Vanguard PU AI UEE",
-    "ANVL_Hurricane_PU_AI_UEE": "Anvil Hurricane PU AI UEE"
+    "ANVL_Hurricane_PU_AI_UEE": "Anvil Hurricane PU AI UEE",
+    "ANVL_Hornet_F7C_Mk2": "Anvil Hornet F7C Mk2",
+    "GRIN_MDC": "GRIN MDC"
   },
   "customPatterns": [],
   "patternOverrides": {},
