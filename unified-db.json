@@ -1,0 +1,3552 @@
+{
+  "_meta": {
+    "version": "2.11.29",
+    "timestamp": "2026-07-13T21:11:51.381Z",
+    "exportedBy": "TypicallyBrit_Ish"
+  },
+  "patterns": [
+    {
+      "id": "ship_enter_voip",
+      "category": "Vehicle",
+      "name": "Ship Enter (VOIP Join)",
+      "status": "verified",
+      "regex": "SHUDEvent_OnNotification.*You have joined channel '(.+?)\\s*:\\s*[^']+'",
+      "example": "<SHUDEvent_OnNotification> You have joined channel 'Esperia Prowler Utility : TypicallyBrit_ish'",
+      "event": "SHIP_ENTER",
+      "alert": "audio",
+      "reaction": "",
+      "warning": "",
+      "notes": "Works for ALL 200+ ships. Only match SHUDEvent lines to avoid 3x duplicates.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-14"
+    },
+    {
+      "id": "ship_exit_cleardriver",
+      "category": "Vehicle",
+      "name": "Ship Exit (ClearDriver)",
+      "status": "verified",
+      "regex": "ClearDriver.*releasing control token for '([^']+)'",
+      "example": "<Vehicle Control Flow> CVehicleMovementBase::ClearDriver: ...releasing control token for 'ESPR_Prowler_Utility_9448279551878'",
+      "event": "SHIP_EXIT",
+      "alert": "none",
+      "reaction": "",
+      "warning": "",
+      "notes": "Fires when leaving pilot seat, NOT the ship. Player may still be aboard.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-14"
+    },
+    {
+      "id": "location_room",
+      "category": "Navigation",
+      "name": "Location (RoomName)",
+      "status": "verified",
+      "regex": "RoomName:\\s*(.+?)\\s*$",
+      "example": "RoomName: OOC_Stanton_1b_Aberdeen_HEX_Cave_001",
+      "event": "LOCATION",
+      "alert": "none",
+      "reaction": "",
+      "warning": "",
+      "notes": "Secondary location source. Fallback when inventory request not available.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-14"
+    },
+    {
+      "id": "server_connected",
+      "category": "Navigation",
+      "name": "Server Connected (Join PU)",
+      "status": "verified",
+      "regex": "<Join PU>.*address\\[([^\\]]+)\\].*port\\[([^\\]]+)\\].*shard\\[([^\\]]+)\\]",
+      "example": "<Join PU> address[34.11.90.244] port[64307] shard[pub_use1b_11218823_110]",
+      "event": "SERVER_CONNECTED",
+      "alert": "none",
+      "reaction": "",
+      "warning": "",
+      "notes": "Shard parsed as USE1B-110 (region + instance). Only fires once per session.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-14"
+    },
+    {
+      "id": "zone_armistice_enter",
+      "category": "Navigation",
+      "name": "Armistice Zone Enter",
+      "status": "verified",
+      "regex": "Added notification.*Entering Armistice Zone",
+      "example": "Added notification \"Entering Armistice Zone - Combat Prohibited: \"",
+      "event": "ZONE",
+      "alert": "both",
+      "reaction": "",
+      "warning": "Entering Armistice Zone",
+      "notes": "Triggers safe zone indicator on overlay.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-14"
+    },
+    {
+      "id": "zone_armistice_leave",
+      "category": "Navigation",
+      "name": "Armistice Zone Leave",
+      "status": "verified",
+      "regex": "Added notification.*Leaving Armistice Zone",
+      "example": "Added notification \"Leaving Armistice Zone - Caution Advised: \"",
+      "event": "ZONE",
+      "alert": "visual",
+      "reaction": "",
+      "warning": "Leaving Armistice Zone",
+      "notes": "Triggers weapons-hot warning.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-14"
+    },
+    {
+      "id": "zone_monitored",
+      "category": "Navigation",
+      "name": "Monitored Space Enter",
+      "status": "verified",
+      "regex": "Added notification.*Entered Monitored Space",
+      "example": "Added notification \"Entered Monitored Space: \"",
+      "event": "ZONE",
+      "alert": "none",
+      "reaction": "",
+      "warning": "",
+      "notes": "Comm array coverage detection.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-14"
+    },
+    {
+      "id": "session_start",
+      "category": "Session",
+      "name": "Session Start",
+      "status": "verified",
+      "regex": "<Context Establishment Done>",
+      "example": "<Context Establishment Done> ...",
+      "event": "SESSION_START",
+      "alert": "none",
+      "reaction": "",
+      "warning": "",
+      "hueColor": "green",
+      "notes": "Fires once when player loads into the universe. Guards prevent multiple emissions.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-14"
+    },
+    {
+      "id": "hangar_state",
+      "category": "Vehicle",
+      "name": "Hangar State Change",
+      "status": "verified",
+      "regex": "<PlatformManager>.*Changed state to (\\w+)",
+      "example": "<PlatformManager> Changed state to MovingPlatformToCallPosition",
+      "event": "HANGAR_STATE",
+      "alert": "none",
+      "reaction": "",
+      "warning": "",
+      "notes": "States mapped: MovingPlatform*=TRANSIT, Idle*=READY, Closed*=CLOSED.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-14"
+    },
+    {
+      "id": "spawn_set",
+      "category": "Vehicle",
+      "name": "Spawn Location Set",
+      "status": "verified",
+      "regex": "SetSpawnLocation.*'([^']+)'",
+      "example": "<SetSpawnLocation> Player set spawn to 'ESPR_Prowler_Utility_9448279551878'",
+      "event": "SPAWN_SET",
+      "alert": "none",
+      "reaction": "",
+      "warning": "",
+      "notes": "Bed logout / respawn point detection.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-14"
+    },
+    {
+      "id": "fire_background_sim",
+      "category": "Fire",
+      "name": "Fire Background Simulation (NOISE)",
+      "status": "verified",
+      "regex": "<Fire Client - Background Simulation Skipped>",
+      "example": "<Fire Client - Background Simulation Skipped> Fire Area 'mrai_guardian_int_cockpit_room_RN' received a snapshot...",
+      "event": "NONE",
+      "alert": "none",
+      "reaction": "",
+      "warning": "",
+      "notes": "⚠️ NOISE — 1000+ lines per session. Fires for ALL ships in area. EXCLUDED from detection.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-15"
+    },
+    {
+      "id": "actor_death",
+      "category": "Combat",
+      "name": "Actor Death",
+      "status": "research",
+      "regex": "<Actor Death>.*CActor::Kill:\\s*'([^']+)'\\s*\\[\\d+\\].*killed by\\s*'([^']+)'\\s*\\[\\d+\\].*using\\s*'([^']+)'",
+      "example": "<Actor Death> CActor::Kill: 'PlayerName' [id] in zone 'location' killed by 'KillerName' [id] using 'WeaponName' [Class X] with damage type 'DamageType'",
+      "event": "DEATH",
+      "alert": "both",
+      "reaction": "TTS: Death detected",
+      "warning": "Wasted",
+      "hueColor": "red",
+      "notes": "From MASTER_GUIDE research. Extracts victim, killer, weapon, damage type, zone, direction vector.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-14"
+    },
+    {
+      "id": "vehicle_destruction",
+      "category": "Combat",
+      "name": "Vehicle Destruction",
+      "status": "research",
+      "regex": "<Vehicle Destruction>.*Vehicle\\s+'([^']+)'.*driven by\\s+'([^']+)'.*from destroy level\\s+(\\d+)\\s+to\\s+(\\d+).*caused by\\s+'([^']+)'",
+      "example": "<Vehicle Destruction> CVehicle::OnAdvanceDestroyLevel: Vehicle 'ANVL_Paladin_123' [id] in zone 'zone' driven by 'Driver' [id] advanced from destroy level 0 to 1 caused by 'Attacker' [id]",
+      "event": "VEHICLE_DESTRUCTION",
+      "alert": "both",
+      "reaction": "TTS: Vehicle destroyed",
+      "warning": "Vehicle Critical",
+      "hueColor": "red",
+      "notes": "Destroy levels: 0=intact, 1=crippled, 2=destroyed.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-14"
+    },
+    {
+      "id": "mission_ended",
+      "category": "Mission",
+      "name": "Mission Ended (Structured)",
+      "status": "research",
+      "regex": "<MissionEnded>\\s*mission_id\\s*\\[([^\\]]+)\\]\\s*-\\s*mission_state\\s*\\[([^\\]]+)\\]",
+      "example": "<MissionEnded> mission_id [UUID] - mission_state [MISSION_STATE_SUCCEEDED]",
+      "event": "MISSION_STATUS",
+      "alert": "none",
+      "reaction": "",
+      "warning": "",
+      "notes": "Structured end format. States: SUCCEEDED, FAILED, ABANDONED, EXPIRED.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-14"
+    },
+    {
+      "id": "mission_accepted",
+      "category": "Mission",
+      "name": "Mission Accepted (Notification)",
+      "status": "research",
+      "regex": "Added notification.*Mission Accepted",
+      "example": "Added notification \"Mission Accepted: Bounty Hunt - High Priority\"",
+      "event": "MISSION_ACCEPTED",
+      "alert": "none",
+      "reaction": "",
+      "warning": "",
+      "hueColor": "blue",
+      "notes": "Notification-based detection. May need refinement.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-14"
+    },
+    {
+      "id": "mission_updated",
+      "category": "Mission",
+      "name": "Mission Updated (Notification)",
+      "status": "research",
+      "regex": "Added notification.*Mission Updated",
+      "example": "Added notification \"Mission Updated: Objective Changed\"",
+      "event": "MISSION_OBJECTIVE",
+      "alert": "none",
+      "reaction": "",
+      "warning": "",
+      "notes": "Notification-based. Captures objective changes.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-14"
+    },
+    {
+      "id": "quantum_travel",
+      "category": "Navigation",
+      "name": "Quantum Travel",
+      "status": "research",
+      "regex": "<Quantum>|QuantumDrive",
+      "example": "<Quantum> Player entered quantum travel",
+      "event": "QUANTUM",
+      "alert": "none",
+      "reaction": "",
+      "warning": "",
+      "notes": "Speculative. Needs verification against real QT log lines.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-14"
+    },
+    {
+      "id": "fire_extinguisher",
+      "category": "Inventory",
+      "name": "Fire Extinguisher (Inventory)",
+      "status": "verified",
+      "regex": "kegr_fire_extinguisher",
+      "example": "<AttachmentReceived> Player[Name] Attachment[kegr_fire_extinguisher_01_9433658186907...]",
+      "event": "NONE",
+      "alert": "none",
+      "reaction": "",
+      "warning": "",
+      "notes": "Inventory noise. Explicitly excluded from fire detection.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-15"
+    },
+    {
+      "name": "Inventory",
+      "category": "Inventory",
+      "event": "",
+      "status": "research",
+      "regex": "<.*?> \\[Notice\\] <InventoryManagement> Request\\[\\d+\\] Player\\[.*?\\] Result\\[succeed\\] Elapsed\\[\\d+\\.\\d+\\] \\[Team_CoreGameplayFeatures\\]\\[Inventory\\]",
+      "example": "<2026-07-10T12:53:49.081Z> [Notice] <InventoryManagement> Request[32] Player[TypicallyBrit_ish] Result[succeed] Elapsed[0.127994] [Team_CoreGameplayFeatures][Inventory]",
+      "hue": "none",
+      "overlay": "none",
+      "alert": "none",
+      "warning": "",
+      "reaction": "",
+      "notes": "Hub message when inventory open",
+      "isStateful": true,
+      "subHudLabel": "INVENTORY OPEN",
+      "subHudDuration": 0,
+      "stopRegex": "<.*?> \\[Notice\\] <Remove Inventory Container UI> Player\\[.*?\\] inventory \\[.*?\\] removed from UI \\[Team_CoreGameplayFeatures\\]\\[Inventory\\]",
+      "stopExample": "<2026-07-10T12:40:02.593Z> [Notice] <Remove Inventory Container UI> Player[TypicallyBrit_ish] inventory [685855500901:Container:0] removed from UI [Team_CoreGameplayFeatures][Inventory]",
+      "id": "pattern_1783691233125",
+      "addedDate": "2026-07-10",
+      "addedBy": "user",
+      "ignoredTokens": [
+        {
+          "text": "<2026-07-10T12:53:49.081Z>",
+          "type": "ignored"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "[Notice]",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "<InventoryManagement>",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "Request",
+          "type": "literal"
+        },
+        {
+          "text": "[32]",
+          "type": "ignored"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "Player",
+          "type": "literal"
+        },
+        {
+          "text": "[TypicallyBrit_ish]",
+          "type": "ignored"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "Result",
+          "type": "literal"
+        },
+        {
+          "text": "[succeed]",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "Elapsed",
+          "type": "literal"
+        },
+        {
+          "text": "[0.127994]",
+          "type": "ignored"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "[Team_CoreGameplayFeatures]",
+          "type": "literal"
+        },
+        {
+          "text": "[Inventory]",
+          "type": "literal"
+        }
+      ],
+      "stopIgnoredTokens": [
+        {
+          "text": "<2026-07-10T12:40:02.593Z>",
+          "type": "ignored"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "[Notice]",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "<Remove Inventory Container UI>",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "Player",
+          "type": "literal"
+        },
+        {
+          "text": "[TypicallyBrit_ish]",
+          "type": "ignored"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "inventory",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "[685855500901:Container:0]",
+          "type": "ignored"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "removed",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "from",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "UI",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "[Team_CoreGameplayFeatures]",
+          "type": "literal"
+        },
+        {
+          "text": "[Inventory]",
+          "type": "literal"
+        }
+      ]
+    },
+    {
+      "id": "party_stream_out_ygfdposbk",
+      "event": "PARTY_STREAM_OUT",
+      "regex": "/<CPartyMarkerComponent UFES> Streaming out party marker id (\\d+)\\. TrackedEntityId: (\\d+)/i",
+      "notes": "Built-in pattern from social.js parser",
+      "category": "Social",
+      "source": "custom"
+    },
+    {
+      "id": "party_stream_in_448g8hh4a",
+      "event": "PARTY_STREAM_IN",
+      "regex": "/<CPartyMarkerComponent RWES> Streamed in party marker id (\\d+)\\. TrackedEntityId: (\\d+)/i",
+      "notes": "Built-in pattern from social.js parser",
+      "category": "Social",
+      "source": "custom"
+    },
+    {
+      "id": "channel_disconnected_ko10gnxx6",
+      "event": "CHANNEL_DISCONNECTED",
+      "regex": "/<Channel Disconnected>/i",
+      "notes": "Built-in pattern from social.js parser",
+      "category": "Social",
+      "source": "custom"
+    },
+    {
+      "id": "channel_connected_y2edczr4q",
+      "event": "CHANNEL_CONNECTED",
+      "regex": "/<Channel Connection Complete>/i",
+      "notes": "Built-in pattern from social.js parser",
+      "category": "Social",
+      "source": "custom"
+    },
+    {
+      "id": "channel_destroyed_nnwu7yqlb",
+      "event": "CHANNEL_DESTROYED",
+      "regex": "/<Channel Destroyed>/i",
+      "notes": "Built-in pattern from social.js parser",
+      "category": "Social",
+      "source": "custom"
+    },
+    {
+      "id": "channel_created_dgyjhepek",
+      "event": "CHANNEL_CREATED",
+      "regex": "/<Channel Created>/i",
+      "notes": "Built-in pattern from social.js parser",
+      "category": "Social",
+      "source": "custom"
+    },
+    {
+      "id": "group_join_d0g02lm5b",
+      "event": "GROUP_JOIN",
+      "regex": "/<Group>.*Join/i",
+      "notes": "Built-in pattern from social.js parser",
+      "category": "Social",
+      "source": "custom"
+    },
+    {
+      "id": "group_invite_oc78wk9jl",
+      "event": "GROUP_INVITE",
+      "regex": "/<Group>.*Invite/i",
+      "notes": "Built-in pattern from social.js parser",
+      "category": "Social",
+      "source": "custom"
+    },
+    {
+      "id": "social_unsubscribe_rjo9zxgb8",
+      "event": "SOCIAL_UNSUBSCRIBE",
+      "regex": "/<UnsubscribeFromPlayerSocial> Unsubscribing from player (\\d+)/",
+      "notes": "Built-in pattern from social.js parser",
+      "category": "Social",
+      "source": "custom"
+    },
+    {
+      "id": "social_subscribe_jxxispz9m",
+      "event": "SOCIAL_SUBSCRIBE",
+      "regex": "/<SubscribeToPlayerSocial> Subscribing to player (\\d+)/",
+      "notes": "Built-in pattern from social.js parser",
+      "category": "Social",
+      "source": "custom"
+    },
+    {
+      "id": "shop_terminal_thhv56io6",
+      "event": "SHOP_TERMINAL",
+      "regex": "/<CEntityComponentShoppingProvider::OnGainedAuthority>.*playerId\\[(\\d+)\\]/i",
+      "notes": "Built-in pattern from economy.js parser",
+      "category": "Economy",
+      "source": "custom"
+    },
+    {
+      "id": "insurance_claim_result_dmjmw3fnm",
+      "event": "INSURANCE_CLAIM_RESULT",
+      "regex": "/<CWallet::RmMulticastOnProcessClaimCallback>.*result:\\s*(\\d+).*requestId:\\s*(\\d+)/i",
+      "notes": "Built-in pattern from economy.js parser",
+      "category": "Economy",
+      "source": "custom"
+    },
+    {
+      "id": "insurance_claim_wallet_839u2hm7o",
+      "event": "INSURANCE_CLAIM_WALLET",
+      "regex": "/<CWallet::ProcessClaimToNextStep>.*entitlementURN:\\s*(\\S+).*requestId\\s*:\\s*(\\d+)/i",
+      "notes": "Built-in pattern from economy.js parser",
+      "category": "Economy",
+      "source": "custom"
+    },
+    {
+      "id": "fine_n69r2q03w",
+      "event": "FINE",
+      "regex": "/Fined\\s+(\\d+)\\s+UEC/i",
+      "notes": "Built-in pattern from economy.js parser",
+      "category": "Economy",
+      "source": "custom"
+    },
+    {
+      "id": "insurance_claim_oaal7wlte",
+      "event": "INSURANCE_CLAIM",
+      "regex": "/<InsuranceClaim>/",
+      "notes": "Built-in pattern from economy.js parser",
+      "category": "Economy",
+      "source": "custom"
+    },
+    {
+      "id": "shop_purchase_nxex2wo30",
+      "event": "SHOP_PURCHASE",
+      "regex": "/<ShopPurchase>/",
+      "notes": "Built-in pattern from economy.js parser",
+      "category": "Economy",
+      "source": "custom"
+    },
+    {
+      "id": "transaction_0ibzegi1v",
+      "event": "TRANSACTION",
+      "regex": "/<Transaction>/",
+      "notes": "Built-in pattern from economy.js parser",
+      "category": "Economy",
+      "source": "custom"
+    },
+    {
+      "id": "objective_marker_contract_i8n227h17",
+      "event": "OBJECTIVE_MARKER_CONTRACT",
+      "regex": "/<CLocalMissionPhaseMarker::CreateMarker>.*?missionId\\s+\\[([^\\]]+)\\].*?contract\\s+\\[([^\\]]+)\\]/i",
+      "notes": "Built-in pattern from mission.js parser",
+      "category": "Mission",
+      "source": "custom"
+    },
+    {
+      "id": "mission_engine_stop_vpag4tlpr",
+      "event": "MISSION_ENGINE_STOP",
+      "regex": "/<CSubsumptionMissionComponent::StopMissionLogic>/i",
+      "notes": "Built-in pattern from mission.js parser",
+      "category": "Mission",
+      "source": "custom"
+    },
+    {
+      "id": "mission_engine_create_rx9myhz3i",
+      "event": "MISSION_ENGINE_CREATE",
+      "regex": "/<CSubsumptionMissionComponent::CreateMissionInstance>.*?\\[MISSION\\].*?Creating.*?Missions\\/([^\\/]+\\/[^\\.]+)/i",
+      "notes": "Built-in pattern from mission.js parser",
+      "category": "Mission",
+      "source": "custom"
+    },
+    {
+      "id": "tracked_mission_85mq16002",
+      "event": "TRACKED_MISSION",
+      "regex": "/TrackedMission|MissionMarker/i",
+      "notes": "Built-in pattern from mission.js parser",
+      "category": "Mission",
+      "source": "custom"
+    },
+    {
+      "id": "notification_objective_id_ilmz4g648",
+      "event": "NOTIFICATION_OBJECTIVE_ID",
+      "regex": "/ObjectiveId:\\s*\\[([^\\]]*)\\]/i",
+      "notes": "Built-in pattern from mission.js parser",
+      "category": "Mission",
+      "source": "custom"
+    },
+    {
+      "id": "notification_mission_id_mn64dqlay",
+      "event": "NOTIFICATION_MISSION_ID",
+      "regex": "/MissionId:\\s*\\[([^\\]]+)\\]/i",
+      "notes": "Built-in pattern from mission.js parser",
+      "category": "Mission",
+      "source": "custom"
+    },
+    {
+      "id": "mobiglas_accept_rz0fcsya9",
+      "event": "MOBIGLAS_ACCEPT",
+      "regex": "/MobiGlas::OnAcceptMission/i",
+      "notes": "Built-in pattern from mission.js parser",
+      "category": "Mission",
+      "source": "custom"
+    },
+    {
+      "id": "new_objective_4ql204u7a",
+      "event": "NEW_OBJECTIVE",
+      "regex": "/(?:Added notification \"New Objective:\\s*|Notification \"New Objective:\\s*|(?:\\s*|^)\"New Objective:\\s*)([^\"]+)\"\\s*(?:\\[(\\d+)\\])?/i",
+      "notes": "Built-in pattern from mission.js parser",
+      "category": "Mission",
+      "source": "custom"
+    },
+    {
+      "id": "contract_failed_2dkwhlzar",
+      "event": "CONTRACT_FAILED",
+      "regex": "/(?:Added notification \"Contract Failed:\\s*|Notification \"Contract Failed:\\s*|(?:\\s*|^)\"Contract Failed:\\s*)([^\"]+)\"/i",
+      "notes": "Built-in pattern from mission.js parser",
+      "category": "Mission",
+      "source": "custom"
+    },
+    {
+      "id": "contract_complete_pgjxgeq9w",
+      "event": "CONTRACT_COMPLETE",
+      "regex": "/(?:Added notification \"Contract Complete[d]?:\\s*|Notification \"Contract Complete:\\s*|(?:\\s*|^)\"Contract Complete[d]?:\\s*)([^\"]+)\"/i",
+      "notes": "Built-in pattern from mission.js parser",
+      "category": "Mission",
+      "source": "custom"
+    },
+    {
+      "id": "contract_accepted_napgd1bs7",
+      "event": "CONTRACT_ACCEPTED",
+      "regex": "/(?:Added notification \"Contract Accepted:\\s*|Notification \"Contract Accepted:\\s*|(?:\\s*|^)\"Contract Accepted:\\s*)([^\"]+)\"\\s*(?:\\[(\\d+)\\])?/i",
+      "notes": "Built-in pattern from mission.js parser",
+      "category": "Mission",
+      "source": "custom"
+    },
+    {
+      "id": "objective_upserted_id_0z0zm91jj",
+      "event": "OBJECTIVE_UPSERTED_ID",
+      "regex": "/<ObjectiveUpserted>.*?mission_id\\s+(\\S+).*?objective_id\\s+(\\S+)/i",
+      "notes": "Built-in pattern from mission.js parser",
+      "category": "Mission",
+      "source": "custom"
+    },
+    {
+      "id": "update_active_objective_5nbqx056o",
+      "event": "UPDATE_ACTIVE_OBJECTIVE",
+      "regex": "/<CMissionLogEntry::UpdateActiveObjective>.*?\\[Text=([^\\]]+)\\]/i",
+      "notes": "Built-in pattern from mission.js parser",
+      "category": "Mission",
+      "source": "custom"
+    },
+    {
+      "id": "mission_objective_tag_budtjxeq4",
+      "event": "MISSION_OBJECTIVE_TAG",
+      "regex": "/<ObjectiveUpserted>/",
+      "notes": "Built-in pattern from mission.js parser",
+      "category": "Mission",
+      "source": "custom"
+    },
+    {
+      "id": "mission_ended_tag_8k8tf5qxn",
+      "event": "MISSION_ENDED_TAG",
+      "regex": "/<MissionEnded>/",
+      "notes": "Built-in pattern from mission.js parser",
+      "category": "Mission",
+      "source": "custom"
+    },
+    {
+      "id": "mission_ended_structured_i84p2ehza",
+      "event": "MISSION_ENDED_STRUCTURED",
+      "regex": "/<MissionEnded>\\s*mission_id\\s*\\[([^\\]]+)\\]\\s*-\\s*mission_state\\s*\\[([^\\]]+)\\]/i",
+      "notes": "Built-in pattern from mission.js parser",
+      "category": "Mission",
+      "source": "custom"
+    },
+    {
+      "id": "combat_hit_ujiz36fev",
+      "event": "COMBAT_HIT",
+      "regex": "/DamageType|ApplyDamage|OnDamage|OnHit|Shield pool/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "corpse_stream_v83u1khpl",
+      "event": "CORPSE_STREAM",
+      "regex": "/<CSCActorCorpseUtils::PopulateItemPortForItemRecoveryEntitlement>.*?Item\\s+'(body_01_noMagicPocket_\\d+)/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "ocs_radar_56li6krqz",
+      "event": "OCS_RADAR",
+      "regex": "/\\[CItemResourceHost::AddHostedNode\\] Resource container component was already registered!\\s+Entity\\s*:\\s*(\\w+)_(\\d+)\\s+--\\s+Host\\s*:\\s*(\\w+)_(\\d+)/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "fire_notification_tjhgk38yu",
+      "event": "FIRE_NOTIFICATION",
+      "regex": "/Added notification.*(?:Fire|fire)/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "proximity_fire_yxxe5rbd6",
+      "event": "PROXIMITY_FIRE",
+      "regex": "/\\u003cFire Client - Background Simulation Skipped\\u003e Fire Area '([^']+)'/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "fire_ship_init_ww9emcxqy",
+      "event": "FIRE_SHIP_INIT",
+      "regex": "/<Fire Client - Skip Initial Snapshot> Fire Area '([^']+)' for vehicle '([^']+)'/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "fire_actual_ng3y7a4ci",
+      "event": "FIRE_ACTUAL",
+      "regex": "/<Fire Client - Snapshot Request> Fire Area '([^']+)'.*Similarity: [\\d.]+ dB/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "depressurizing_5k9ytyp3k",
+      "event": "DEPRESSURIZING",
+      "regex": "/Player.*started depressurization/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "suffocating_gcb4qmnsf",
+      "event": "SUFFOCATING",
+      "regex": "/Player.*started suffocating/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "vehicle_destruction_zone_3pokv5rz5",
+      "event": "VEHICLE_DESTRUCTION_ZONE",
+      "regex": "/in zone\\s+'([^']+)'/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "vehicle_destruction_detail_rlzqha8cj",
+      "event": "VEHICLE_DESTRUCTION_DETAIL",
+      "regex": "/<Vehicle Destruction>.*?Vehicle\\s+'([^']+)'\\s*\\[\\d+\\].*?driven by\\s+'([^']+)'\\s*\\[\\d+\\].*?from destroy level\\s+(\\d+)\\s+to\\s+(\\d+).*?caused by\\s+'([^']+)'/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "vehicle_destruction_85t51q3kn",
+      "event": "VEHICLE_DESTRUCTION",
+      "regex": "/<Vehicle Destruction>/",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "revive_triggered_9bbw3xd2s",
+      "event": "REVIVE_TRIGGERED",
+      "regex": "/Player\\s+Revive\\s+Triggered/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "player_died_qptq2ytno",
+      "event": "PLAYER_DIED",
+      "regex": "/Local\\s+player\\s+died/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "simple_actor_death_363ccs4i7",
+      "event": "SIMPLE_ACTOR_DEATH",
+      "regex": "/Actor\\s+death/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "medical_dropoff_l0bqe3grg",
+      "event": "MEDICAL_DROPOFF",
+      "regex": "/DropoffLocation_BP\\[Destination\\],\\s+locations:\\s+\\(([^\\]]+)\\s+\\[([^\\]]+)\\]\\)/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "crimestat_p1g4b6v9t",
+      "event": "CRIMESTAT",
+      "regex": "/CrimeStat Rating (Increased|Decreased)/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "death_direction_7hb0nzxdv",
+      "event": "DEATH_DIRECTION",
+      "regex": "/from direction\\s+x:\\s*([-\\d.]+),?\\s*y:\\s*([-\\d.]+),?\\s*z:\\s*([-\\d.]+)/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "death_zone_7fvuijiuz",
+      "event": "DEATH_ZONE",
+      "regex": "/in zone\\s+'([^']+)'/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "death_detailed_wyzmmek3o",
+      "event": "DEATH_DETAILED",
+      "regex": "/<Actor Death>.*?'([^']+)'\\s*\\[\\d+\\].*?killed by\\s+'([^']+)'\\s*\\[\\d+\\].*?using\\s+'([^']+)'.*?damage type\\s+'([^']+)'/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "actor_state_dead_aa4xxtc1s",
+      "event": "ACTOR_STATE_DEAD",
+      "regex": "/<\\[ActorState\\] Dead>.*?Actor '([^']+)'\\s*\\[\\d+\\].*?from zone '([^']+)'\\s*\\[\\d+\\].*?to zone '([^']+)'/i",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "actor_death_7stst59zw",
+      "event": "ACTOR_DEATH",
+      "regex": "/<Actor Death>/",
+      "notes": "Built-in pattern from combat.js parser",
+      "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "inventory_3ba8uedzh",
+      "event": "INVENTORY",
+      "regex": "/<InventoryManagement>\\s+Request\\[(\\d+)\\]\\s+for\\s+'([^']+)'\\s+\\[\\d+\\]\\s+Result\\[(\\w+)\\]/i",
+      "notes": "Inventory management pattern from inventory.js parser",
+      "category": "Inventory",
+      "source": "custom"
+    },
+    {
+      "id": "inventory_6p75s1x7g",
+      "event": "INVENTORY",
+      "regex": "/<([^>]+)>\\s+\\[[^\\]]+\\]\\s+<AttachmentReceived>\\s+Player\\[([^\\]]+)\\]\\s+Attachment\\[([^,\\]]+),\\s*([^,\\]]+),\\s*([^\\]]+)\\](?:[^\\n]*?Port\\[([^\\]]+)\\])?/i",
+      "notes": "Primary pattern from inventory.js parser",
+      "category": "Inventory",
+      "source": "custom"
+    },
+    {
+      "id": "starmap_route_4vq12vwrz",
+      "event": "STARMAP_ROUTE",
+      "regex": "/Failed to get starmap route data!.*?\\s*\\|\\s*([A-Za-z0-9_]+)\\[\\d+\\]/i",
+      "notes": "Built-in pattern from vehicle.js parser",
+      "category": "Vehicle",
+      "source": "custom"
+    },
+    {
+      "id": "asop_access_p3fdwxv19",
+      "event": "ASOP_ACCESS",
+      "regex": "/Fetching ship list for local client\\s+\\[Team_GameServices\\]\\[ASOP\\]/i",
+      "notes": "Built-in pattern from vehicle.js parser",
+      "category": "Vehicle",
+      "source": "custom"
+    },
+    {
+      "id": "spawn_reservation_oe3w04q8e",
+      "event": "SPAWN_RESERVATION",
+      "regex": "/lost\\s+reservation\\s+for\\s+spawnpoint\\s+([^\\s]+)\\s+\\[(\\d+)\\]/",
+      "notes": "Built-in pattern from vehicle.js parser",
+      "category": "Vehicle",
+      "source": "custom"
+    },
+    {
+      "id": "spawn_flow_ik8kwlp0x",
+      "event": "SPAWN_FLOW",
+      "regex": "/<Spawn Flow>/",
+      "notes": "Built-in pattern from vehicle.js parser",
+      "category": "Vehicle",
+      "source": "custom"
+    },
+    {
+      "id": "hangar_state_4mzt41dq8",
+      "event": "HANGAR_STATE",
+      "regex": "/LoadingPlatformManager.*?ShipElevator.*?Platform state changed to (\\w+)/i",
+      "notes": "Built-in pattern from vehicle.js parser",
+      "category": "Vehicle",
+      "source": "custom"
+    },
+    {
+      "id": "clear_driver_m6or42wgd",
+      "event": "CLEAR_DRIVER",
+      "regex": "/ClearDriver.*releasing control token for '([^']+)'/",
+      "notes": "Built-in pattern from vehicle.js parser",
+      "category": "Vehicle",
+      "source": "custom"
+    },
+    {
+      "id": "voip_join_tqklkl8gw",
+      "event": "VOIP_JOIN",
+      "regex": "/You have joined channel '(.+?)\\s*:\\s*[^']+'/",
+      "notes": "Built-in pattern from vehicle.js parser",
+      "category": "Vehicle",
+      "source": "custom"
+    },
+    {
+      "id": "hangar_request_mxmam7gl5",
+      "event": "HANGAR_REQUEST",
+      "regex": "/(?:Added notification \"Hangar Request Completed:\\s*|Notification \"Hangar Request Completed:\\s*|(?:\\s*|^)\"Hangar Request Completed:\\s*)([^\"]*)\"/i",
+      "notes": "Built-in pattern from hangar.js parser",
+      "category": "Vehicle",
+      "source": "custom"
+    },
+    {
+      "id": "atc_assigned_meg0l8xqt",
+      "event": "ATC_ASSIGNED",
+      "regex": "/Notification \"Landing pad ([^\"]+) assigned\"/i",
+      "notes": "Built-in pattern from hangar.js parser",
+      "category": "Vehicle",
+      "source": "custom"
+    },
+    {
+      "id": "platform_changed_1gveizcwg",
+      "event": "PLATFORM_CHANGED",
+      "regex": "/Loading Platform Manager \\[(LoadingPlatformManager_[^\\]]+)\\] Platform state changed to (\\w+)/i",
+      "notes": "Built-in pattern from hangar.js parser",
+      "category": "Vehicle",
+      "source": "custom"
+    },
+    {
+      "id": "platform_state_ur8exqjv2",
+      "event": "PLATFORM_STATE",
+      "regex": "/<CSCLoadingPlatformManager::TransitionLightGroupState>.*platform manager '([^']+)'.*state:\\s+(\\w+)/i",
+      "notes": "Built-in pattern from hangar.js parser",
+      "category": "Vehicle",
+      "source": "custom"
+    },
+    {
+      "id": "context_done_ebssp8dvi",
+      "event": "CONTEXT_DONE",
+      "regex": "/<Context Establisher Done>/i",
+      "notes": "Built-in pattern from session.js parser",
+      "category": "Session",
+      "source": "custom"
+    },
+    {
+      "id": "server_change_end_v06j8c9jp",
+      "event": "SERVER_CHANGE_END",
+      "regex": "/<Change Server End>/i",
+      "notes": "Built-in pattern from session.js parser",
+      "category": "Session",
+      "source": "custom"
+    },
+    {
+      "id": "server_change_start_44q2x933c",
+      "event": "SERVER_CHANGE_START",
+      "regex": "/<Change Server Start>/i",
+      "notes": "Built-in pattern from session.js parser",
+      "category": "Session",
+      "source": "custom"
+    },
+    {
+      "id": "main_menu_9polg0rhx",
+      "event": "MAIN_MENU",
+      "regex": "/Disconnecting from server|Connection closed|CGameClient::OnDisconnect|Exiting to Main Menu|Client disconnect/i",
+      "notes": "Built-in pattern from session.js parser",
+      "category": "Session",
+      "source": "custom"
+    },
+    {
+      "id": "system_quit_mx0y5rl5d",
+      "event": "SYSTEM_QUIT",
+      "regex": "/<SystemQuit>\\s+CSystem::Quit invoked/i",
+      "notes": "Built-in pattern from session.js parser",
+      "category": "Session",
+      "source": "custom"
+    },
+    {
+      "id": "session_id_rvecx89h5",
+      "event": "SESSION_ID",
+      "regex": "/\\[Trace\\] @session:\\s+'([^']+)'/i",
+      "notes": "Built-in pattern from session.js parser",
+      "category": "Session",
+      "source": "custom"
+    },
+    {
+      "id": "environment_5wf9yt9g8",
+      "event": "ENVIRONMENT",
+      "regex": "/\\[Trace\\] Environment:\\s+(\\w+)/i",
+      "notes": "Built-in pattern from session.js parser",
+      "category": "Session",
+      "source": "custom"
+    },
+    {
+      "id": "build_info_rfnzqgrx3",
+      "event": "BUILD_INFO",
+      "regex": "/Build\\((\\d+)\\)/i",
+      "notes": "Built-in pattern from session.js parser",
+      "category": "Session",
+      "source": "custom"
+    },
+    {
+      "id": "log_start_42rcpqxe0",
+      "event": "LOG_START",
+      "regex": "/^<([^>]+)> Log started on/i",
+      "notes": "Built-in pattern from session.js parser",
+      "category": "Session",
+      "source": "custom"
+    },
+    {
+      "id": "updateinventorylocationregex_58frn2xu4",
+      "event": "UPDATEINVENTORYLOCATIONREGEX",
+      "regex": "/Update Inventory Location.*Landing \\[(\\d+)\\] -> \\[(\\d+)\\].*Location \\[(\\d+)\\] -> \\[(\\d+)\\]/",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "requestlocationregex_fwxibqrhr",
+      "event": "REQUESTLOCATIONREGEX",
+      "regex": "/RequestLocationInventory.*Location\\[(.*?)\\]/",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "planetcellsregex_q5ctsjvaw",
+      "event": "PLANETCELLSREGEX",
+      "regex": "/planet cells:\\s+(\\d+)\\s+\\[\\s*\\d+\\]\\s+meshes:\\s+(\\d+)\\s+\\[\\s*\\d+\\]\\s+name:\\s+(\\S+)/",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "quantumarrivedregex_nmgb7uvuf",
+      "event": "QUANTUMARRIVEDREGEX",
+      "regex": "/Quantum Drive Arrived - Arrived at Final Destination/",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "routesuccessregex_sienhssxe",
+      "event": "ROUTESUCCESSREGEX",
+      "regex": "/Successfully calculated route to ([^\\s]+) fuel estimate ([\\d.]+)/",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "routestartregex_u2sj3c9i7",
+      "event": "ROUTESTARTREGEX",
+      "regex": "/Projected Start Location is (.*?) for route to destination ([^\\s]+)/",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "stamina_suffocation_y4lj9gjkj",
+      "event": "STAMINA_SUFFOCATION",
+      "regex": "/<\\[STAMINA\\] Player (started|stopped) suffocating> Player\\[([^\\]]+)\\]/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "cargo_elevator_pm2xjnxgl",
+      "event": "CARGO_ELEVATOR",
+      "regex": "/<CSCLoadingPlatformManager::OnLoadingPlatformStateChanged>.*?\\[LoadingPlatformManager_([^\\]]+)\\] Platform state changed to (\\w+)/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "region_volume_k67eoar0q",
+      "event": "REGION_VOLUME",
+      "regex": "/entering region volume.*?'([A-Za-z][^']{3,})'/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "set_zone_cptd2v948",
+      "event": "SET_ZONE",
+      "regex": "/(?:SetZone|SetLocalZone).*?zone.*?'([^']{4,})'/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "jump_point_i7lusa4x1",
+      "event": "JUMP_POINT",
+      "regex": "/position in the grid \\((OOC_JumpPoint_[^)]+)\\)/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "ocs_master_zone_0tn2i0jsv",
+      "event": "OCS_MASTER_ZONE",
+      "regex": "/Master zone is \\[([^\\]]+)\\]/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "loading_platform_gq2sv3l6g",
+      "event": "LOADING_PLATFORM",
+      "regex": "/(?:\\[LoadingPlatformManager_([^\\]]+)\\]\\s+Platform state changed|Platform manager 'LoadingPlatformManager_([^']+)')/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "interdiction_x5iopxese",
+      "event": "INTERDICTION",
+      "regex": "/Interdiction|Jammed|Interrupted|Forced Exit|Pulled out/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "quantum_arrived_mnn139nfs",
+      "event": "QUANTUM_ARRIVED",
+      "regex": "/<Quantum Drive Arrived/",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "quantum_exited_sdc5tk79b",
+      "event": "QUANTUM_EXITED",
+      "regex": "/<Jump Drive Requesting State Change>.*to Idle/",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "quantum_entered_bylwvpz6a",
+      "event": "QUANTUM_ENTERED",
+      "regex": "/<Jump Drive Requesting State Change>.*to Traveling/",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "quantum_spooling_jhjsaisl7",
+      "event": "QUANTUM_SPOOLING",
+      "regex": "/Successfully calculated route to/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "location_obj_45xy4l985",
+      "event": "LOCATION_OBJ",
+      "regex": "/<StatObjLoad\\s+0x[0-9A-Fa-f]+\\s+Format>\\s+'[^']*?objectcontainers\\/pu\\/loc\\/(?:flagship|mod)\\/(?:stanton\\/)?(?:station\\/ser\\/)?(?:[^\\/]+\\/)*([^\\/]{5,})\\//i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "generated_location_xttdeafnj",
+      "event": "GENERATED_LOCATION",
+      "regex": "/<GenerateLocationProperty>.*?locations:\\s*((?:\\([^)]+\\))+)/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "location_generic_tp49t5gbm",
+      "event": "LOCATION_GENERIC",
+      "regex": "/Location\\[([^\\]]+)\\]/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "armistice_leave_qm948aa6e",
+      "event": "ARMISTICE_LEAVE",
+      "regex": "/Added notification \"Leaving Armistice Zone/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "armistice_enter_nl0szx4s8",
+      "event": "ARMISTICE_ENTER",
+      "regex": "/Added notification \"Entering Armistice Zone/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "monitored_space_ei3fgjwf5",
+      "event": "MONITORED_SPACE",
+      "regex": "/Added notification \"Entered Monitored Space/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "jurisdiction_enlzr7b9r",
+      "event": "JURISDICTION",
+      "regex": "/Added notification \"Entered\\s+(.*?)\\s*Jurisdiction/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "join_pu_zcw40halo",
+      "event": "JOIN_PU",
+      "regex": "/<Join PU>\\s+address\\[([^\\]]+)\\]\\s+port\\[([^\\]]+)\\]\\s+shard\\[([^\\]]+)\\]/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "room_name_ugedwbcfh",
+      "event": "ROOM_NAME",
+      "regex": "/RoomName:\\s*([^\\s]+)/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "stamina_room_ooc_p2neccdzd",
+      "event": "STAMINA_ROOM_OOC",
+      "regex": "/\\[STAMINA\\]\\s+(?:\\\\t)?->\\s*RoomName:\\s*(OOC_[^\\s]+)/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "location_inventory_2bx8ko6zh",
+      "event": "LOCATION_INVENTORY",
+      "regex": "/<RequestLocationInventory>\\s+Player\\[[^\\]]+\\]\\s+requested inventory for Location\\[([^\\]]+)\\]/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "name": "Quantum Travel",
+      "category": "Navigation",
+      "event": "",
+      "status": "research",
+      "regex": "\\{\"type\":\"ZONE\",\"value\":\"Open Space\"\\}",
+      "example": "{\"type\":\"ZONE\",\"value\":\"Open Space\"}",
+      "hue": "none",
+      "overlay": "none",
+      "alert": "none",
+      "warning": "Quantum Travel",
+      "reaction": "",
+      "squadStatus": "none",
+      "notes": "",
+      "isStateful": true,
+      "subHudLabel": "Quantum Travel",
+      "subHudDuration": 10,
+      "stopRegex": "\\{\"type\":\"QUANTUM\",\"value\":\"arrived\"\\}",
+      "stopExample": "{\"type\":\"QUANTUM\",\"value\":\"arrived\"}",
+      "ignoredTokens": [
+        {
+          "text": "{",
+          "type": "literal"
+        },
+        {
+          "text": "\"",
+          "type": "literal"
+        },
+        {
+          "text": "type",
+          "type": "literal"
+        },
+        {
+          "text": "\"",
+          "type": "literal"
+        },
+        {
+          "text": ":",
+          "type": "literal"
+        },
+        {
+          "text": "\"",
+          "type": "literal"
+        },
+        {
+          "text": "ZONE",
+          "type": "literal"
+        },
+        {
+          "text": "\"",
+          "type": "literal"
+        },
+        {
+          "text": ",",
+          "type": "literal"
+        },
+        {
+          "text": "\"",
+          "type": "literal"
+        },
+        {
+          "text": "value",
+          "type": "literal"
+        },
+        {
+          "text": "\"",
+          "type": "literal"
+        },
+        {
+          "text": ":",
+          "type": "literal"
+        },
+        {
+          "text": "\"",
+          "type": "literal"
+        },
+        {
+          "text": "Open",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "Space",
+          "type": "literal"
+        },
+        {
+          "text": "\"",
+          "type": "literal"
+        },
+        {
+          "text": "}",
+          "type": "literal"
+        }
+      ],
+      "stopIgnoredTokens": [
+        {
+          "text": "{",
+          "type": "literal"
+        },
+        {
+          "text": "\"",
+          "type": "literal"
+        },
+        {
+          "text": "type",
+          "type": "literal"
+        },
+        {
+          "text": "\"",
+          "type": "literal"
+        },
+        {
+          "text": ":",
+          "type": "literal"
+        },
+        {
+          "text": "\"",
+          "type": "literal"
+        },
+        {
+          "text": "QUANTUM",
+          "type": "literal"
+        },
+        {
+          "text": "\"",
+          "type": "literal"
+        },
+        {
+          "text": ",",
+          "type": "literal"
+        },
+        {
+          "text": "\"",
+          "type": "literal"
+        },
+        {
+          "text": "value",
+          "type": "literal"
+        },
+        {
+          "text": "\"",
+          "type": "literal"
+        },
+        {
+          "text": ":",
+          "type": "literal"
+        },
+        {
+          "text": "\"",
+          "type": "literal"
+        },
+        {
+          "text": "arrived",
+          "type": "literal"
+        },
+        {
+          "text": "\"",
+          "type": "literal"
+        },
+        {
+          "text": "}",
+          "type": "literal"
+        }
+      ],
+      "id": "pattern_1783811561550",
+      "addedDate": "2026-07-11",
+      "addedBy": "user"
+    },
+    {
+      "name": "HIT!",
+      "category": "Other",
+      "event": "",
+      "status": "research",
+      "regex": "<.*?> \\[Error\\] <\\[Particle System\\] Kidnapping Child Effect> Expecting an independent child\\. The child effect 'Damage/HT_Damage/HT_Fire_FX\\.HT_Fire\\.ht_fire_2m_loop_fixed_GPU\\.Light' already references a previous parent\\. Is this a valid parent\\? It will be overridden by the new parent\\. \\[Team_VFX\\]\\[VFX\\]",
+      "example": "<2026-07-12T01:58:47.649Z> [Error] <[Particle System] Kidnapping Child Effect> Expecting an independent child. The child effect 'Damage/HT_Damage/HT_Fire_FX.HT_Fire.ht_fire_2m_loop_fixed_GPU.Light' already references a previous parent. Is this a valid parent? It will be overridden by the new parent. [Team_VFX][VFX]",
+      "hue": "none",
+      "overlay": "both",
+      "alert": "visual",
+      "warning": "",
+      "reaction": "HIT",
+      "squadStatus": "none",
+      "notes": "",
+      "isStateful": false,
+      "subHudLabel": "HIT!",
+      "subHudDuration": 6,
+      "stopRegex": "",
+      "stopExample": "",
+      "ignoredTokens": [
+        {
+          "text": "<2026-07-12T01:58:47.649Z>",
+          "type": "ignored"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "[Error]",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "<[Particle System] Kidnapping Child Effect>",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "Expecting",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "an",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "independent",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "child",
+          "type": "literal"
+        },
+        {
+          "text": ".",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "The",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "child",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "effect",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "'",
+          "type": "literal"
+        },
+        {
+          "text": "Damage",
+          "type": "literal"
+        },
+        {
+          "text": "/",
+          "type": "literal"
+        },
+        {
+          "text": "HT_Damage",
+          "type": "literal"
+        },
+        {
+          "text": "/",
+          "type": "literal"
+        },
+        {
+          "text": "HT_Fire_FX",
+          "type": "literal"
+        },
+        {
+          "text": ".",
+          "type": "literal"
+        },
+        {
+          "text": "HT_Fire",
+          "type": "literal"
+        },
+        {
+          "text": ".",
+          "type": "literal"
+        },
+        {
+          "text": "ht_fire_2m_loop_fixed_GPU",
+          "type": "literal"
+        },
+        {
+          "text": ".",
+          "type": "literal"
+        },
+        {
+          "text": "Light",
+          "type": "literal"
+        },
+        {
+          "text": "'",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "already",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "references",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "a",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "previous",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "parent",
+          "type": "literal"
+        },
+        {
+          "text": ".",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "Is",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "this",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "a",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "valid",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "parent",
+          "type": "literal"
+        },
+        {
+          "text": "?",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "It",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "will",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "be",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "overridden",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "by",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "the",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "new",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "parent",
+          "type": "literal"
+        },
+        {
+          "text": ".",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "[Team_VFX]",
+          "type": "literal"
+        },
+        {
+          "text": "[VFX]",
+          "type": "literal"
+        }
+      ],
+      "stopIgnoredTokens": [],
+      "id": "pattern_1783821614888",
+      "addedDate": "2026-07-12",
+      "addedBy": "user"
+    },
+    {
+      "name": "ASOP Track",
+      "category": "Other",
+      "event": "",
+      "status": "research",
+      "regex": "<.*?> \\[Notice\\] <VehicleListQuery> Fetching vehicle list for player \\d+ completed\\. Retrieved \\d+ entitlements out of \\d+ vehicules\\. \\[Team_GameServices\\]\\[ASOP\\]\\[Entitlement\\]\\[Insurance\\]",
+      "example": "<2026-07-12T21:00:30.769Z> [Notice] <VehicleListQuery> Fetching vehicle list for player 204772290215 completed. Retrieved 33 entitlements out of 39 vehicules. [Team_GameServices][ASOP][Entitlement][Insurance]",
+      "hue": "none",
+      "overlay": "none",
+      "alert": "none",
+      "warning": "",
+      "reaction": "",
+      "squadStatus": "none",
+      "notes": "",
+      "isStateful": false,
+      "subHudLabel": "ASOP TERMINAL",
+      "subHudDuration": 10,
+      "stopRegex": "",
+      "stopExample": "",
+      "ignoredTokens": [
+        {
+          "text": "<2026-07-12T21:00:30.769Z>",
+          "type": "ignored"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "[Notice]",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "<VehicleListQuery>",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "Fetching",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "vehicle",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "list",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "for",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "player",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "204772290215",
+          "type": "ignored"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "completed",
+          "type": "literal"
+        },
+        {
+          "text": ".",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "Retrieved",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "33",
+          "type": "ignored"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "entitlements",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "out",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "of",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "39",
+          "type": "ignored"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "vehicules",
+          "type": "literal"
+        },
+        {
+          "text": ".",
+          "type": "literal"
+        },
+        {
+          "text": " ",
+          "type": "literal"
+        },
+        {
+          "text": "[Team_GameServices]",
+          "type": "literal"
+        },
+        {
+          "text": "[ASOP]",
+          "type": "literal"
+        },
+        {
+          "text": "[Entitlement]",
+          "type": "literal"
+        },
+        {
+          "text": "[Insurance]",
+          "type": "literal"
+        }
+      ],
+      "stopIgnoredTokens": [],
+      "id": "pattern_1783890110125",
+      "addedDate": "2026-07-12",
+      "addedBy": "user"
+    }
+  ],
+  "customShipNames": {
+    "AEGS_Tiburon": "Aegis Tiburon",
+    "RSI_Scorpius": "RSI Scorpius",
+    "DRAK_Golem": "Drake Golem",
+    "ORIG_m80": "Origin m80",
+    "ANVL_Paladin": "Anvil Paladin",
+    "AEGS_Sabre_Firebird": "Aegis Sabre Firebird",
+    "RSI_Meteor_Collector_Military": "RSI Meteor Collector Military",
+    "CRUS_Starfighter_Ion": "Crusader Starfighter Ion",
+    "ANVL_Lightning_F8C": "Anvil Lightning F8C",
+    "RSI_Hermes": "RSI Hermes",
+    "CRUS_Spirit_C1": "Crusader Spirit C1",
+    "DRAK_Cutlass_Black": "Drake Cutlass Black",
+    "MISC_Fortune_Teach": "MISC Fortune Teach",
+    "KRIG_P52_Merlin": "KRIG P52 Merlin",
+    "GAMA_Railen": "GAMA Railen",
+    "ARGO_RAFT": "ARGO RAFT",
+    "ANVL_Arrow": "Anvil Arrow",
+    "ORIG_400i": "Origin 400i",
+    "DRAK_Command_Module": "Drake Command Module",
+    "RSI_Polaris": "RSI Polaris",
+    "DRAK_Dragonfly": "Drake Dragonfly",
+    "AEGS_Eclipse": "Aegis Eclipse",
+    "RSI_Aurora_Mk2": "RSI Aurora Mk2",
+    "AEGS_Avenger_Titan": "Aegis Avenger Titan",
+    "RSI_Perseus": "RSI Perseus",
+    "ARGO_MOTH": "ARGO MOTH",
+    "MISC_Freelancer_MAX": "MISC Freelancer MAX",
+    "AEGS_Vanguard_Sentinel": "Aegis Vanguard Sentinel",
+    "ANVL_Asgard": "Anvil Asgard",
+    "ANVL_Hornet_F7CM_Mk2": "Anvil Hornet F7CM Mk2",
+    "RSI_Constellation_Andromeda": "RSI Constellation Andromeda",
+    "CRUS_Starlifter_C2": "Crusader Starlifter C2",
+    "RSI_Aurora_GS_MR": "RSI Aurora GS MR",
+    "ANVL_Hornet_F7CS_Mk2": "Anvil Hornet F7CS Mk2",
+    "RSI_Constellation_Taurus": "RSI Constellation Taurus",
+    "MISC_Starlancer_Max": "MISC Starlancer Max",
+    "DRAK_Caterpillar": "Drake Caterpillar",
+    "ARGO_SRV": "ARGO SRV",
+    "MISC_Fury": "MISC Fury",
+    "ANVL_Hornet_F7A_Mk2": "Anvil Hornet F7A Mk2",
+    "ESPR_Talon": "Esperia Talon",
+    "KRIG_L21_Wolf": "KRIG L21 Wolf",
+    "MISC_Hull_A": "MISC Hull A",
+    "RSI_Salvation": "RSI Salvation",
+    "KRIG_L22_AlphaWolf": "KRIG L22 AlphaWolf",
+    "ESPR_Prowler_Utility": "Esperia Prowler Utility",
+    "MISC_Razor_EX": "MISC Razor EX",
+    "CRUS_Intrepid": "Crusader Intrepid",
+    "MISC_Prospector_PU_AI_NT_NonLethal": "MISC Prospector PU AI NT NonLethal",
+    "MISC_Prospector_PU_AI_NineTails": "MISC Prospector PU AI NineTails",
+    "ORIG_m50_PU_AI_NT": "Origin m50 PU AI NT",
+    "RSI_Mantis_PU_AI_NineTails": "RSI Mantis PU AI NineTails",
+    "DRAK_Cutter": "Drake Cutter",
+    "ANVL_C8_Pisces": "Anvil C8 Pisces",
+    "ORIG_100i": "Origin 100i",
+    "DRAK_Vulture": "Drake Vulture",
+    "MISC_Prospector_PU_AI_NT": "MISC Prospector PU AI NT",
+    "ANVL_C8R_Pisces": "Anvil C8R Pisces",
+    "RSI_Zeus_CL": "RSI Zeus CL",
+    "GLSN_Shiv": "GLSN Shiv",
+    "CNOU_Mustang_Alpha": "CO Mustang Alpha",
+    "RSI_Constellation_Phoenix": "RSI Constellation Phoenix",
+    "KRIG_P72_Archimedes": "KRIG P72 Archimedes",
+    "MISC_Reliant": "MISC Reliant",
+    "GRIN_PTV": "GRIN PTV",
+    "MISC_Freelancer_MIS": "MISC Freelancer MIS",
+    "RSI_Aurora_GS_LX": "RSI Aurora GS LX",
+    "CNOU_Mustang_Gamma": "CO Mustang Gamma",
+    "MISC_Hull_B": "MISC Hull B",
+    "MISC_Starlancer_TAC": "MISC Starlancer TAC",
+    "DRAK_Pitbull": "Drake Pitbull",
+    "DRAK_Ironclad": "Drake Ironclad",
+    "MRAI_Guardian_MX": "MRAI Guardian MX",
+    "CNOU_Mustang_Beta": "CO Mustang Beta",
+    "AEGS_Retaliator": "Aegis Retaliator",
+    "DRAK_Clipper": "Drake Clipper",
+    "ANVL_Hornet_F7_Mk2_Collector_Mod": "Anvil Hornet F7 Mk2 Collector Mod",
+    "AEGS_Gladius": "Aegis Gladius",
+    "RSI_Aurora_GS_SE": "RSI Aurora GS SE",
+    "ANVL_C8X_Pisces_Expedition": "Anvil C8X Pisces Expedition",
+    "MISC_Hull_C": "MISC Hull C",
+    "VNCL_Stinger": "VNCL Stinger",
+    "RSI_Meteor": "RSI Meteor",
+    "RSI_Mantis": "RSI Mantis",
+    "RSI_Zeus_ES": "RSI Zeus ES",
+    "CNOU_Nomad": "CO Nomad"
+  },
+  "customLocations": {
+    "Checkmate": {
+      "name": "Checkmate",
+      "type": "contested_zone",
+      "system": "Pyro",
+      "parentBody": "Bloom"
+    },
+    "Stanton1 Lorville": {
+      "name": "Lorville",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Util Cmpd Wrhse Sml 001 Rund C Final Int": {
+      "name": "Vivere PAF 03",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "RR P5 L2": {
+      "name": "Gaslight",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "data/objectcontainers/pu/loc/mod/common/hangar/util_a/hangar_lrgtop_001_lorville/physicsgrid_objectcontainerpivot_hangar_lge_01-005.cgf": {
+      "name": "Lorville Large hangar",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "FreightElevator_Util_HangarLarge": {
+      "name": "Large Frigiht Elevator",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Outpost_PAF_Stanton1b_Ruptura_3": {
+      "name": "Raptura 3",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Outpost_PAF_Stanton1b_Ruptura_1": {
+      "name": "Ruptura PAF 1",
+      "zone": "Outpost",
+      "system": "Stanton"
+    },
+    "Outpost_PAF_Stanton1b_Ruptura_2": {
+      "name": "Raptura PAF 2",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Outpost_OLP_Stanton1b_Ruptura": {
+      "name": "Raptura OLP",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "{\"type\":\"LOCATION_HINT\",\"value\":\"util cmpd wrhse lge 001 rund c final int\"}": {
+      "name": "?",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Outpost_OLP_Stanton2b_Lamina": {
+      "name": "Lamina OLP",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "RR_CRU_L1": {
+      "name": "Cru L1 Station",
+      "zone": "Armistice Zone",
+      "system": "Auto"
+    },
+    "RR_JP_PyroStanton": {
+      "name": "Stanton Gateway",
+      "zone": "Space Station",
+      "system": "Pyro"
+    },
+    "RR_P3_LEO": {
+      "name": "Orbituary",
+      "zone": "Space Station",
+      "system": "Pyro"
+    },
+    "PrisonMine_Stanton1b": {
+      "name": "Prison",
+      "zone": "Restricted Area",
+      "system": "Stanton"
+    },
+    "Outpost_PAF_Stanton1b_Vivere_1": {
+      "name": "PAF Vivere 1",
+      "zone": "Outpost",
+      "system": "Stanton"
+    },
+    "Outpost_PAF_Stanton1b_Vivere_2": {
+      "name": "PAF Vivere 2",
+      "zone": "Outpost",
+      "system": "Stanton"
+    },
+    "Stanton2c_ASD_Delve_Facility_005": {
+      "name": "ASD",
+      "zone": "Facility",
+      "system": "Stanton"
+    },
+    "TheCollectorsAsteriod_Stanton2": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "Stanton3a_ASD_Delve_Facility_007": {
+      "name": "ASD Lyria 1",
+      "zone": "Facility",
+      "system": "Stanton"
+    },
+    "Stanton3a_ASD_Delve_Facility_008": {
+      "name": "Stanton ASD 08",
+      "zone": "Facility",
+      "system": "Stanton"
+    },
+    "TheCollectorsAsteriod_Stanton1": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "TheCollectorsAsteriod_Stanton4": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "UGF_Security_Stanton1_HDSFTompkins": {
+      "name": "HDSF-Tompkins",
+      "zone": "Outpost",
+      "system": "Stanton"
+    },
+    "DC_Stan_Hurston_S1_Farnesway_FOB": {
+      "name": "Security Compound",
+      "zone": "Outpost",
+      "system": "Stanton"
+    },
+    "Outpost_Col_M_Pyro_HH_scrp_Pyro6_LastLandings_Junkpile": {
+      "name": "Last Landings",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Outpost_EMShelter": {
+      "name": "Eager Flats Aid Shelter",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Cave_Unoccupied_Stanton1d": {
+      "name": "Ita Cave",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "AsteroidClusters_Nyx": {
+      "name": "Glaciem Ring Cluster",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "s3b_asd_facility_004": {
+      "name": "Wala Asd Facility 004",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Stanton3b_ASD_Delve_Facility_004": {
+      "name": "Wala Asd Delve Facility 4",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "MiningAsteroidBase_Stanton": {
+      "name": "Asteroid Mining Base",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Outpost_Colonial_Ruin_Stanton1d": {
+      "name": "Ita Derelict Outpost",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Stanton3a_ASD_Delve_Facility_004": {
+      "name": "Lyria ASD Delve Facility 4",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "RR_CRU_LEO": {
+      "name": "Seraphim Station",
+      "zone": "Space Station",
+      "system": "Stanton"
+    },
+    "Stanton3b_ASD_Delve_Facility_003": {
+      "name": "Wala ASD Delve Facility 3",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "RR_ARC_LEO": {
+      "name": "Baijini Point",
+      "zone": "Space Station",
+      "system": "Stanton"
+    },
+    "Stanton2b_ShubinMining_SCD1": {
+      "name": "Shubin Mining SCD1",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "RR_HUR_L2": {
+      "name": "Hur L2",
+      "zone": "Auto",
+      "system": "Stanton"
+    },
+    "RR_MIC_LEO": {
+      "name": "Port Tressler",
+      "zone": "Space Station",
+      "system": "Stanton"
+    },
+    "Stanton4_NewBabbage": {
+      "name": "New Babbage",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "RR_JP_NyxCastra": {
+      "name": "Stanton Gateway",
+      "zone": "Space Station",
+      "system": "Nyx"
+    },
+    "RR_JP_StantonMagnus": {
+      "name": "Nyx Gateway",
+      "zone": "Space Station",
+      "system": "Stanton"
+    },
+    "Pyro2_Outpost_col_m_trdp_indy_001": {
+      "name": "Jackson's Swap",
+      "zone": "Outpost",
+      "system": "Pyro"
+    },
+    "Pyro2_Outpost_col_m_scrp_indy_001": {
+      "name": "Sunset Mesa",
+      "zone": "Outpost",
+      "system": "Pyro"
+    },
+    "RR_P3_L3": {
+      "name": "Patch City",
+      "zone": "Space Station",
+      "system": "Pyro"
+    },
+    "Pyro3_Outpost_col_m_trdpst_otlw_006": {
+      "name": "Golden Riviera",
+      "zone": "Outpost",
+      "system": "Pyro"
+    },
+    "Stanton2b_ASD_Delve_Facility_002": {
+      "name": "Daymar ASD Facility 2",
+      "zone": "Facility",
+      "system": "Stanton"
+    },
+    "LOCATION_3944210345": {
+      "name": "Magda",
+      "zone": "Auto",
+      "system": "Stanton"
+    },
+    "Ht_D_Airlock_Small-000": {
+      "name": "Airlock",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "LOCATION_308639451": {
+      "name": "Everus Harbour",
+      "type": "space_station",
+      "system": "Stanton",
+      "parentBody": "Hurston"
+    },
+    "LOCATION_2788831084": {
+      "name": "HDMS Ryder",
+      "zone": "Auto",
+      "system": "Stanton"
+    },
+    "LOCATION_467417103": {
+      "name": "Magda",
+      "zone": "Auto",
+      "system": "Stanton"
+    },
+    "LOCATION_2713355646": {
+      "name": "Magda",
+      "zone": "Auto",
+      "system": "Stanton"
+    },
+    "LOCATION_1902223495": {
+      "name": "Pyro gateway",
+      "type": "space_station",
+      "system": "Stanton",
+      "parentBody": ""
+    },
+    "sand01_occu_001_size03_001_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size04_004_int": {
+      "name": "R R H U R L2",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "sand01_unoc_001_size03_004_int": {
+      "name": "R R H U R L2",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "sand01_unoc_001_size05_003_int": {
+      "name": "R R H U R L2",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "hangar_smlfrnt_001_rest_occu": {
+      "name": "R R H U R L2",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "hangar_medfrnt_001_rest_occu": {
+      "name": "R R H U R L2",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "rs_clinic_pyro-stan_jp1": {
+      "name": "Stanton Gateway (Pyro)",
+      "type": "space_station",
+      "system": "Pyro",
+      "parentBody": ""
+    },
+    "TheCollectorsAsteroid_Stanton2": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "TheCollectorsAsteroid_Stanton4": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "TheCollectorsAsteroid_Stanton1": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "LOCATION_1964978648": {
+      "name": "Orbit",
+      "type": "moon",
+      "system": "Stanton",
+      "parentBody": "Hurston"
+    },
+    "LOCATION_4093098225": {
+      "name": "Vivere PAF 2",
+      "type": "poi",
+      "system": "Stanton",
+      "parentBody": "Hurston"
+    },
+    "struct_m_base_shp_001": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "struct_m_base_hgr_l_001": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "RR_HUR_LEO": {
+      "name": "Everus Harbour",
+      "type": "space_station",
+      "system": "Stanton",
+      "parentBody": "Hurston"
+    },
+    "TheCollectorsAsteroid_Stanton3": {
+      "name": "TheCollectorsAsteroid_Stanton3",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "StreamingSOC_util_cmpd_wrhse_lge_001_rund_c_final_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "StreamingSOC_util_cmpd_wrhse_lge_001_rund_b_final_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "StreamingSOC_util_cmpd_wrhse_lge_001_rund_a_final_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "LOCATION_3278159406": {
+      "name": "Jump Town",
+      "type": "bunker",
+      "system": "Stanton",
+      "parentBody": "Daymar"
+    },
+    "LOCATION_1266458994": {
+      "name": "QV Breaker 304 - digit",
+      "type": "space_station",
+      "system": "Nyx",
+      "parentBody": ""
+    },
+    "LOCATION_1988372641": {
+      "name": "Orbit",
+      "type": "moon",
+      "system": "Stanton",
+      "parentBody": "Yela"
+    },
+    "sand01_unoc_001_size06_004_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size03_001_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size06_001_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size05_001_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size02_004_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size02_001_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size02_002_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size02_001_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size04_001_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size06_002_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size06_003_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size02_003_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size02_003_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size03_003_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size05_002_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "util_dish_001_rund_c_final_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "util_cmpd_wrhse_sml_001_rund_b_final_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "util_dish_001_rund_b_final_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "util_cmpd_wrhse_sml_001_rund_a_final_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "util_dish_001_rund_a_final_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    }
+  },
+  "blueprints": [
+    {
+      "name": "Agni",
+      "category": "Quantum Drive",
+      "source": "FTL Courier (Neutral/Jr. Contractor)"
+    },
+    {
+      "name": "Ana Arms Endro",
+      "category": "Armor",
+      "source": "Wikelo — Armor with horn and string"
+    },
+    {
+      "name": "Ana Core Endro",
+      "category": "Armor",
+      "source": "Wikelo — Armor with horn and string"
+    },
+    {
+      "name": "Ana Helmet Endro",
+      "category": "Armor",
+      "source": "Wikelo — Armor with horn and string"
+    },
+    {
+      "name": "Ana Legs Endro",
+      "category": "Armor",
+      "source": "Wikelo — Armor with horn and string"
+    },
+    {
+      "name": "Antium Arms",
+      "category": "Armor",
+      "source": "Foxwell Enforcement — Yellow Level contracts"
+    },
+    {
+      "name": "Antium Arms Midnight Sun",
+      "category": "Armor",
+      "source": "Wikelo — Most Special Wolf"
+    },
+    {
+      "name": "Antium Core",
+      "category": "Armor",
+      "source": "Foxwell Enforcement — Yellow Level contracts"
+    },
+    {
+      "name": "Antium Core Midnight Sun",
+      "category": "Armor",
+      "source": "Wikelo — Most Special Wolf"
+    },
+    {
+      "name": "Antium Helmet",
+      "category": "Armor",
+      "source": "Foxwell Enforcement — Yellow Level contracts"
+    },
+    {
+      "name": "Antium Helmet Midnight Sun",
+      "category": "Armor",
+      "source": "Wikelo — Most Special Wolf"
+    },
+    {
+      "name": "Antium Legs",
+      "category": "Armor",
+      "source": "Foxwell Enforcement — Yellow Level contracts"
+    },
+    {
+      "name": "Antium Legs Midnight Sun",
+      "category": "Armor",
+      "source": "Wikelo — Most Special Wolf"
+    },
+    {
+      "name": "Arclight \"Midnight\" Pistol",
+      "category": "Weapon",
+      "source": "Shubin Interstellar — Purchase Orders"
+    },
+    {
+      "name": "Arclight Pistol Battery (30 cap)",
+      "category": "Ammo",
+      "source": "Shubin Interstellar — Purchase Orders"
+    },
+    {
+      "name": "Balandin",
+      "category": "Quantum Drive",
+      "source": "Covalex Hauling (Master)"
+    },
+    {
+      "name": "Barbican",
+      "category": "Shield",
+      "source": "Ling Family Hauling (Trainee/Rookie)"
+    },
+    {
+      "name": "Bokto Arms",
+      "category": "Armor",
+      "source": "Wikelo — Make glowy armor"
+    },
+    {
+      "name": "Bokto Core",
+      "category": "Armor",
+      "source": "Wikelo — Make glowy armor"
+    },
+    {
+      "name": "Bokto Helmet",
+      "category": "Armor",
+      "source": "Wikelo — Make glowy armor"
+    },
+    {
+      "name": "Bokto Legs",
+      "category": "Armor",
+      "source": "Wikelo — Make glowy armor"
+    },
+    {
+      "name": "Bolt",
+      "category": "Quantum Drive",
+      "source": "Ling Family Hauling (Trainee/Rookie)"
+    },
+    {
+      "name": "Boomtube \"Clanguard\" Rocket Launcher",
+      "category": "Weapon",
+      "source": "Wikelo — Curious Weapon"
+    },
+    {
+      "name": "Boomtube Rocket",
+      "category": "Ammo",
+      "source": "Wikelo — Curious Weapon"
+    },
+    {
+      "name": "Citadel",
+      "category": "Shield",
+      "source": "Ling Family Hauling (Trainee/Rookie)"
+    },
+    {
+      "name": "Colossus",
+      "category": "Quantum Drive",
+      "source": "FTL Courier (Neutral/Jr. Contractor)"
+    },
+    {
+      "name": "Corbel Arms Crush",
+      "category": "Armor",
+      "source": "Wikelo — Shiny Builder Suit"
+    },
+    {
+      "name": "Corbel Core Crush",
+      "category": "Armor",
+      "source": "Wikelo — Shiny Builder Suit"
+    },
+    {
+      "name": "Corbel Helmet Crush",
+      "category": "Armor",
+      "source": "Wikelo — Shiny Builder Suit"
+    },
+    {
+      "name": "Corbel Legs Crush",
+      "category": "Armor",
+      "source": "Wikelo — Shiny Builder Suit"
+    },
+    {
+      "name": "Defiant",
+      "category": "Powerplant",
+      "source": "FTL Courier (Neutral/Jr. Contractor)"
+    },
+    {
+      "name": "Endurance",
+      "category": "Powerplant",
+      "source": "FTL Courier (Neutral/Jr. Contractor)"
+    },
+    {
+      "name": "Ezra",
+      "category": "Weapon",
+      "source": "",
+      "unreleased": true
+    },
+    {
+      "name": "Fresnel \"Deepwater\" Energy LMG",
+      "category": "Weapon",
+      "source": "Wikelo — Most Special Wolf"
+    },
+    {
+      "name": "Fresnel \"Yormandi\" Energy LMG",
+      "category": "Weapon",
+      "source": "Wikelo — Yormandi Gun"
+    },
+    {
+      "name": "Geist Armor Arms Snow Camo",
+      "category": "Armor",
+      "source": "Wikelo — Hide Snow Suit"
+    },
+    {
+      "name": "Geist Armor Core Snow Camo",
+      "category": "Armor",
+      "source": "Wikelo — Hide Snow Suit"
+    },
+    {
+      "name": "Geist Armor Helmet Snow Camo",
+      "category": "Armor",
+      "source": "Wikelo — Hide Snow Suit"
+    },
+    {
+      "name": "Geist Armor Legs Snow Camo",
+      "category": "Armor",
+      "source": "Wikelo — Hide Snow Suit"
+    },
+    {
+      "name": "Geist Backpack Snow Camo",
+      "category": "Armor",
+      "source": "Wikelo — Hide Snow Suit"
+    },
+    {
+      "name": "Guardian",
+      "category": "Shield",
+      "source": "Ling Family Hauling (Trainee/Rookie)"
+    },
+    {
+      "name": "Huracan",
+      "category": "Quantum Drive",
+      "source": "FTL Courier (Neutral/Jr. Contractor)"
+    },
+    {
+      "name": "Killshot \"Dominion Camo\" Rifle",
+      "category": "Weapon",
+      "source": "Wikelo — Your Best Shot"
+    },
+    {
+      "name": "Killshot Rifle Magazine (45 Cap)",
+      "category": "Ammo",
+      "source": "Wikelo — Your Best Shot"
+    },
+    {
+      "name": "Lindstrom",
+      "category": "Weapon",
+      "source": "",
+      "unreleased": true
+    },
+    {
+      "name": "Marlin",
+      "category": "Weapon",
+      "source": "",
+      "unreleased": true
+    },
+    {
+      "name": "Metamaterial Test #146",
+      "category": "Crafting Mat",
+      "source": "Wikelo — Extra Special Wolf (L-22 Wolf)"
+    },
+    {
+      "name": "Monde Arms",
+      "category": "Armor",
+      "source": "Highpoint — Kill Valakkar (Neutral)"
+    },
+    {
+      "name": "Monde Arms Crimson Camo",
+      "category": "Armor",
+      "source": "Wikelo — Red Fight Armor"
+    },
+    {
+      "name": "Monde Arms Hiro",
+      "category": "Armor",
+      "source": "Highpoint — Kill Valakkar (Neutral)"
+    },
+    {
+      "name": "Monde Core",
+      "category": "Armor",
+      "source": "Highpoint — Kill Valakkar (Neutral)"
+    },
+    {
+      "name": "Monde Core Crimson Camo",
+      "category": "Armor",
+      "source": "Wikelo — Red Fight Armor"
+    },
+    {
+      "name": "Monde Core Hiro",
+      "category": "Armor",
+      "source": "Highpoint — Kill Valakkar (Neutral)"
+    },
+    {
+      "name": "Monde Helmet",
+      "category": "Armor",
+      "source": "Highpoint — Kill Valakkar (Neutral)"
+    },
+    {
+      "name": "Monde Helmet Crimson Camo",
+      "category": "Armor",
+      "source": "Wikelo — Red Fight Armor"
+    },
+    {
+      "name": "Monde Helmet Hiro",
+      "category": "Armor",
+      "source": "Highpoint — Kill Valakkar (Neutral)"
+    },
+    {
+      "name": "Monde Legs",
+      "category": "Armor",
+      "source": "Highpoint — Kill Valakkar (Neutral)"
+    },
+    {
+      "name": "Monde Legs Crimson Camo",
+      "category": "Armor",
+      "source": "Wikelo — Red Fight Armor"
+    },
+    {
+      "name": "Monde Legs Hiro",
+      "category": "Armor",
+      "source": "Highpoint — Kill Valakkar (Neutral)"
+    },
+    {
+      "name": "Neutrino Racing Flight Suit BlackFire",
+      "category": "Armor/Apparel",
+      "source": "",
+      "ingredients": [
+        {
+          "name": "Silicon",
+          "quantity": 0.06
+        }
+      ]
+    },
+    {
+      "name": "Neutrino Racing Flight Suit BlueFlame",
+      "category": "Armor/Apparel",
+      "source": "",
+      "ingredients": [
+        {
+          "name": "Silicon",
+          "quantity": 0.06
+        }
+      ]
+    },
+    {
+      "name": "Neutrino Racing Flight Suit Mirai\\n",
+      "category": "Armor",
+      "source": "",
+      "ingredients": [
+        {
+          "name": "Silicon",
+          "quantity": 0.06
+        }
+      ]
+    },
+    {
+      "name": "Neutrino Racing Flight Suit WhiteHot",
+      "category": "Armor/Apparel",
+      "source": "",
+      "ingredients": [
+        {
+          "name": "Silicon",
+          "quantity": 0.06
+        }
+      ]
+    },
+    {
+      "name": "Neutrino Racing Helmet BlackFire",
+      "category": "Armor/Apparel",
+      "source": "",
+      "ingredients": [
+        {
+          "name": "Silicon",
+          "quantity": 0.03
+        }
+      ]
+    },
+    {
+      "name": "Neutrino Racing Helmet BlueFlame",
+      "category": "Armor/Apparel",
+      "source": "",
+      "ingredients": [
+        {
+          "name": "Silicon",
+          "quantity": 0.03
+        }
+      ]
+    },
+    {
+      "name": "Neutrino Racing Helmet Mirai",
+      "category": "Armor",
+      "source": "",
+      "ingredients": [
+        {
+          "name": "Silicon",
+          "quantity": 0.03
+        }
+      ]
+    },
+    {
+      "name": "Neutrino Racing Helmet WhiteHot",
+      "category": "Armor/Apparel",
+      "source": "",
+      "ingredients": [
+        {
+          "name": "Silicon",
+          "quantity": 0.03
+        }
+      ]
+    },
+    {
+      "name": "Norfield",
+      "category": "Weapon",
+      "source": "",
+      "unreleased": true
+    },
+    {
+      "name": "Novikov Backpack Crush",
+      "category": "Armor",
+      "source": "Wikelo — Shiny Builder Suit"
+    },
+    {
+      "name": "P8-AR Rifle",
+      "category": "Weapon",
+      "source": "RAIN / Rayari — Yormandi Eye (Sr. Contractor)"
+    },
+    {
+      "name": "P8-ARM Rifle Magazine (30 cap)",
+      "category": "Ammo",
+      "source": "RAIN / Rayari — Yormandi Eye (Sr. Contractor)"
+    },
+    {
+      "name": "Palatino Arms",
+      "category": "Armor",
+      "source": "RAIN / Rayari — Yormandi Eye (Sr. Contractor)"
+    },
+    {
+      "name": "Palatino Arms Mark I",
+      "category": "Armor",
+      "source": "Wikelo — Test Armor"
+    },
+    {
+      "name": "Palatino Arms Moonfall",
+      "category": "Armor",
+      "source": "RAIN / Rayari — Yormandi Eye (Sr. Contractor)"
+    },
+    {
+      "name": "Palatino Backpack Mark I",
+      "category": "Armor",
+      "source": "Wikelo — Test Armor"
+    },
+    {
+      "name": "Palatino Core",
+      "category": "Armor",
+      "source": "RAIN / Rayari — Yormandi Eye (Sr. Contractor)"
+    },
+    {
+      "name": "Palatino Core Mark I",
+      "category": "Armor",
+      "source": "Wikelo — Test Armor"
+    },
+    {
+      "name": "Palatino Core Moonfall",
+      "category": "Armor",
+      "source": "RAIN / Rayari — Yormandi Eye (Sr. Contractor)"
+    },
+    {
+      "name": "Palatino Helmet",
+      "category": "Armor",
+      "source": "RAIN / Rayari — Yormandi Eye (Sr. Contractor)"
+    },
+    {
+      "name": "Palatino Helmet Mark I",
+      "category": "Armor",
+      "source": "Wikelo — Test Armor"
+    },
+    {
+      "name": "Palatino Helmet Moonfall",
+      "category": "Armor",
+      "source": "RAIN / Rayari — Yormandi Eye (Sr. Contractor)"
+    },
+    {
+      "name": "Palatino Legs",
+      "category": "Armor",
+      "source": "RAIN / Rayari — Yormandi Eye (Sr. Contractor)"
+    },
+    {
+      "name": "Palatino Legs Mark I",
+      "category": "Armor",
+      "source": "Wikelo — Test Armor"
+    },
+    {
+      "name": "Palatino Legs Moonfall",
+      "category": "Armor",
+      "source": "RAIN / Rayari — Yormandi Eye (Sr. Contractor)"
+    },
+    {
+      "name": "Palisade",
+      "category": "Shield",
+      "source": "Covalex Hauling (Master)"
+    },
+    {
+      "name": "Parallax \"Fun Kopion Skull\" Energy Assault Rifle",
+      "category": "Weapon",
+      "source": "Wikelo — Fun Kopion Skull Gun"
+    },
+    {
+      "name": "Parallax \"Fun Military Skull\" Energy Assault Rifle",
+      "category": "Weapon",
+      "source": "Wikelo — Fun Military Skull Gun"
+    },
+    {
+      "name": "Parallax Energy Assault Rifle",
+      "category": "Weapon",
+      "source": "Foxwell Enforcement — Yellow Level contracts"
+    },
+    {
+      "name": "Parallax Rifle Battery (80 Cap)",
+      "category": "Ammo",
+      "source": "Foxwell Enforcement / Wikelo"
+    },
+    {
+      "name": "Parapet",
+      "category": "Shield",
+      "source": "Covalex Hauling (Master)"
+    },
+    {
+      "name": "Prism \"Bonedust\" Laser Shotgun",
+      "category": "Weapon",
+      "source": "RAIN / Rayari — Yormandi Eye (Sr. Contractor)"
+    },
+    {
+      "name": "Prism \"Deep Sea\" Laser Shotgun",
+      "category": "Weapon",
+      "source": "RAIN / Rayari — Yormandi Eye (Sr. Contractor)"
+    },
+    {
+      "name": "Prism \"Firesteel\" Laser Shotgun",
+      "category": "Weapon",
+      "source": "RAIN / Rayari — Yormandi Eye (Sr. Contractor)"
+    },
+    {
+      "name": "Prism \"Irradiated\" Laser Shotgun",
+      "category": "Weapon",
+      "source": "Wikelo — Make VOLT shotgun angrier"
+    },
+    {
+      "name": "Prism Laser Shotgun",
+      "category": "Weapon",
+      "source": "RAIN / Rayari — Yormandi Eye (Sr. Contractor)"
+    },
+    {
+      "name": "Prism Laser Shotgun Battery (20 cap)",
+      "category": "Ammo",
+      "source": "RAIN / Rayari — Yormandi Eye (Sr. Contractor)"
+    },
+    {
+      "name": "Pulse \"Blacklist\" Pistol",
+      "category": "Weapon",
+      "source": "RAIN / Rayari — OLP (Jr. Contractor+)"
+    },
+    {
+      "name": "Pulse \"Rouge\" Pistol",
+      "category": "Weapon",
+      "source": "RAIN / Rayari — OLP (Jr. Contractor+)"
+    },
+    {
+      "name": "Pulse Laser Pistol",
+      "category": "Weapon",
+      "source": "RAIN / Rayari — OLP (Jr. Contractor+)"
+    },
+    {
+      "name": "Pulse Laser Pistol Battery (60 Cap)",
+      "category": "Ammo",
+      "source": "RAIN / Rayari — OLP (Jr. Contractor+)"
+    },
+    {
+      "name": "Quartz \"Black Op\" Energy SMG",
+      "category": "Weapon",
+      "source": "RAIN / Rayari — OLP (Jr. Contractor+)"
+    },
+    {
+      "name": "Quartz \"Deadfall\" Energy SMG",
+      "category": "Weapon",
+      "source": "RAIN / Rayari — OLP (Jr. Contractor+)"
+    },
+    {
+      "name": "Quartz \"Lumen\" Energy SMG",
+      "category": "Weapon",
+      "source": "RAIN / Rayari — OLP (Jr. Contractor+)"
+    },
+    {
+      "name": "Quartz Energy SMG",
+      "category": "Weapon",
+      "source": "RAIN / Rayari — OLP (Jr. Contractor+)"
+    },
+    {
+      "name": "Quartz Energy SMG Battery (45 cap)",
+      "category": "Ammo",
+      "source": "RAIN / Rayari — OLP (Jr. Contractor+)"
+    },
+    {
+      "name": "R97 \"Crimson Camo\" Shotgun",
+      "category": "Weapon",
+      "source": "Wikelo — Red Fight Shotgun"
+    },
+    {
+      "name": "R97 Shotgun",
+      "category": "Weapon",
+      "source": "Highpoint — Kill Valakkar (Neutral)"
+    },
+    {
+      "name": "R97 Shotgun Magazine (18 cap)",
+      "category": "Ammo",
+      "source": "Highpoint — Kill Valakkar / Wikelo — Red Fight Shotgun"
+    },
+    {
+      "name": "Rampart",
+      "category": "Shield",
+      "source": "Covalex Hauling (Master)"
+    },
+    {
+      "name": "RN-7s",
+      "category": "Weapon",
+      "source": "",
+      "unreleased": true
+    },
+    {
+      "name": "Sedulity",
+      "category": "Powerplant",
+      "source": "FTL Courier (Neutral/Jr. Contractor)"
+    },
+    {
+      "name": "Siebe Helmet",
+      "category": "Armor",
+      "source": "RAIN / Rayari — Yormandi Eye (Sr. Contractor)"
+    },
+    {
+      "name": "Siren",
+      "category": "Quantum Drive",
+      "source": "Covalex Hauling (Master)"
+    },
+    {
+      "name": "Spectre",
+      "category": "Quantum Drive",
+      "source": "Ling Family Hauling (Trainee/Rookie)"
+    },
+    {
+      "name": "Spicule",
+      "category": "Quantum Drive",
+      "source": "Ling Family Hauling (Trainee/Rookie)"
+    },
+    {
+      "name": "Stirling Exploration Suit",
+      "category": "Armor/Apparel",
+      "source": "RAIN / Rayari — Yormandi Eye (Sr. Contractor)"
+    },
+    {
+      "name": "Strata Arms",
+      "category": "Armor",
+      "source": "Foxwell Enforcement / Shubin Interstellar contracts"
+    },
+    {
+      "name": "Strata Arms Heatwave",
+      "category": "Armor",
+      "source": "Wikelo — Do Lava Suit"
+    },
+    {
+      "name": "Strata Backpack Heatwave",
+      "category": "Armor",
+      "source": "Wikelo — Do Lava Suit"
+    },
+    {
+      "name": "Strata Core",
+      "category": "Armor",
+      "source": "Foxwell Enforcement / Shubin Interstellar contracts"
+    },
+    {
+      "name": "Strata Core Heatwave",
+      "category": "Armor",
+      "source": "Wikelo — Do Lava Suit"
+    },
+    {
+      "name": "Strata Helmet",
+      "category": "Armor",
+      "source": "Foxwell Enforcement / Shubin Interstellar contracts"
+    },
+    {
+      "name": "Strata Helmet Heatwave",
+      "category": "Armor",
+      "source": "Wikelo — Do Lava Suit"
+    },
+    {
+      "name": "Strata Helmet Shooting Star",
+      "category": "Armor",
+      "source": "Shubin Interstellar — Purchase Orders"
+    },
+    {
+      "name": "Strata Legs",
+      "category": "Armor",
+      "source": "Foxwell Enforcement / Shubin Interstellar contracts"
+    },
+    {
+      "name": "Strata Legs Heatwave",
+      "category": "Armor",
+      "source": "Wikelo — Do Lava Suit"
+    },
+    {
+      "name": "Tailwind Flight Helmet Dominion Camo",
+      "category": "Armor/Apparel",
+      "source": "Wikelo — Suit Up Take Off"
+    },
+    {
+      "name": "Tailwind Flight Suit Dominion Camo",
+      "category": "Armor/Apparel",
+      "source": "Wikelo — Suit Up Take Off"
+    },
+    {
+      "name": "Testudo Arms Clanguard",
+      "category": "Armor",
+      "source": "Wikelo — Armor with Vanduul"
+    },
+    {
+      "name": "Testudo Arms Combustion",
+      "category": "Armor",
+      "source": "Wikelo Emporium (crafting mission)"
+    },
+    {
+      "name": "Testudo Arms Nightveil",
+      "category": "Armor",
+      "source": "Wikelo Emporium (crafting mission)"
+    },
+    {
+      "name": "Testudo Arms Turfwar",
+      "category": "Armor",
+      "source": "Wikelo Emporium (crafting mission)"
+    },
+    {
+      "name": "Testudo Backpack Clanguard",
+      "category": "Armor",
+      "source": "Wikelo — Armor with Vanduul"
+    },
+    {
+      "name": "Testudo Backpack Combustion",
+      "category": "Armor",
+      "source": "Wikelo Emporium (crafting mission)"
+    },
+    {
+      "name": "Testudo Core Clanguard",
+      "category": "Armor",
+      "source": "Wikelo — Armor with Vanduul"
+    },
+    {
+      "name": "Testudo Core Combustion",
+      "category": "Armor",
+      "source": "Wikelo Emporium (crafting mission)"
+    },
+    {
+      "name": "Testudo Core Nightveil",
+      "category": "Armor",
+      "source": "Wikelo Emporium (crafting mission)"
+    },
+    {
+      "name": "Testudo Helmet Clanguard",
+      "category": "Armor",
+      "source": "Wikelo — Armor with Vanduul"
+    },
+    {
+      "name": "Testudo Helmet Clonguord",
+      "category": "Armor",
+      "source": "Wikelo — Armor with Vanduul (variant spelling)"
+    },
+    {
+      "name": "Testudo Helmet Combustion",
+      "category": "Armor",
+      "source": "Wikelo Emporium (crafting mission)"
+    },
+    {
+      "name": "Testudo Helmet Nightveil",
+      "category": "Armor",
+      "source": "Wikelo Emporium (crafting mission)"
+    },
+    {
+      "name": "Testudo Helmet Turfwar",
+      "category": "Armor",
+      "source": "Wikelo Emporium (crafting mission)"
+    },
+    {
+      "name": "Testudo Legs Clanguard",
+      "category": "Armor",
+      "source": "Wikelo — Armor with Vanduul"
+    },
+    {
+      "name": "Testudo Legs Combustion",
+      "category": "Armor",
+      "source": "Wikelo Emporium (crafting mission)"
+    },
+    {
+      "name": "Tripledown \"Heatwave\" Pistol",
+      "category": "Weapon",
+      "source": "Wikelo — Hot Shot"
+    },
+    {
+      "name": "Tripledown Pistol Magazine (12 Cap)",
+      "category": "Ammo",
+      "source": "Wikelo — Hot Shot"
+    },
+    {
+      "name": "TS-2",
+      "category": "Quantum Drive",
+      "source": "Covalex Hauling (Master)"
+    },
+    {
+      "name": "VaporBlock [STH-S1-B]",
+      "category": "Shield",
+      "source": "Source unknown — found in logs"
+    },
+    {
+      "name": "VK-00",
+      "category": "Quantum Drive",
+      "source": "Covalex Hauling (Master)"
+    },
+    {
+      "name": "Warden Backpack Crimson Camo",
+      "category": "Armor",
+      "source": "Wikelo — Red Fight Armor"
+    },
+    {
+      "name": "WhiteHot Racing Flight Suit",
+      "category": "Armor/Apparel",
+      "source": "Source unknown — found in logs"
+    },
+    {
+      "name": "XL-1",
+      "category": "Quantum Drive",
+      "source": "Covalex Hauling (Master)"
+    },
+    {
+      "name": "Yeager",
+      "category": "Quantum Drive",
+      "source": "Covalex Hauling (Master)"
+    },
+    {
+      "name": "Zenith \"Snow Camo\" Laser Sniper Rifle",
+      "category": "Weapon",
+      "source": "Wikelo — Snow Snipe"
+    },
+    {
+      "name": "Zenith Laser Sniper Rifle Battery (22 Cap)",
+      "category": "Ammo",
+      "source": "Wikelo — Snow Snipe"
+    },
+    {
+      "name": "Zephyr",
+      "category": "Quantum Drive",
+      "source": "Ling Family Hauling (Trainee/Rookie)"
+    }
+  ],
+  "items": [
+    {
+      "id": "laser_cannon_m",
+      "name": "Laser Cannon (Medium)",
+      "type": "weapon",
+      "archetype": "klwe_ubarrel_lasr_s1_02",
+      "numericId": 9480450742602,
+      "damage": 12.4,
+      "rpm": 1200
+    },
+    {
+      "id": "klwe_pistol_energy_01",
+      "name": "KLWE Pistol (Energy)",
+      "type": "weapon",
+      "archetype": "klwe_pistol_energy_01",
+      "numericId": 200000000235,
+      "damage": 6.5,
+      "rpm": 600
+    },
+    {
+      "id": "klwe_sniper_energy_01_mag",
+      "name": "KLWE Sniper Magazine",
+      "type": "magazine",
+      "archetype": "klwe_sniper_energy_01_mag",
+      "numericId": 9477893104153,
+      "capacity": 10
+    },
+    {
+      "id": "grin_multitool_01",
+      "name": "GRIN Multi-Tool",
+      "type": "tool",
+      "archetype": "grin_multitool_01",
+      "numericId": 9477893104164,
+      "utility": "salvage"
+    },
+    {
+      "id": "crlf_medgun_01",
+      "name": "CRLF Medgun",
+      "type": "consumable",
+      "archetype": "crlf_medgun_01_msn_rwd02",
+      "numericId": 9477893104171,
+      "healing": 50
+    },
+    {
+      "id": "behr_rifle_ballistic_02",
+      "name": "Behring Rifle (Ballistic)",
+      "type": "weapon",
+      "archetype": "behr_rifle_ballistic_02_civilian",
+      "numericId": 9477893104155,
+      "damage": 9.8,
+      "rpm": 450
+    },
+    {
+      "id": "behr_rifle_ballistic_02_mag",
+      "name": "Behring Rifle Magazine",
+      "type": "magazine",
+      "archetype": "behr_rifle_ballistic_02_mag_civilian",
+      "numericId": 9477893104156,
+      "capacity": 30
+    },
+    {
+      "id": "none_lmg_ballistic_01",
+      "name": "Generic LMG (Ballistic)",
+      "type": "weapon",
+      "archetype": "none_lmg_ballistic_01",
+      "numericId": 9477893104160,
+      "damage": 8.2,
+      "rpm": 700
+    },
+    {
+      "id": "ksar_sniper_ballistic_01_mag",
+      "name": "KSAR Sniper Magazine",
+      "type": "magazine",
+      "archetype": "ksar_sniper_ballistic_01_mag",
+      "numericId": 9477893104152,
+      "capacity": 5
+    },
+    {
+      "id": "gmni_lmg_ballistic_01_mag",
+      "name": "GMNI LMG Magazine",
+      "type": "magazine",
+      "archetype": "gmni_lmg_ballistic_01_mag",
+      "numericId": 9477893104151,
+      "capacity": 60
+    }
+  ]
+}
