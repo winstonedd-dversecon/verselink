@@ -1,0 +1,628 @@
+{
+  "customLocations": {
+    "Checkmate": {
+      "name": "Checkmate",
+      "type": "contested_zone",
+      "system": "Pyro",
+      "parentBody": "Bloom"
+    },
+    "Stanton1 Lorville": {
+      "name": "Lorville",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Util Cmpd Wrhse Sml 001 Rund C Final Int": {
+      "name": "Vivere PAF 03",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "RR P5 L2": {
+      "name": "Gaslight",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "data/objectcontainers/pu/loc/mod/common/hangar/util_a/hangar_lrgtop_001_lorville/physicsgrid_objectcontainerpivot_hangar_lge_01-005.cgf": {
+      "name": "Lorville Large hangar",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "FreightElevator_Util_HangarLarge": {
+      "name": "Large Frigiht Elevator",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Outpost_PAF_Stanton1b_Ruptura_3": {
+      "name": "Raptura 3",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Outpost_PAF_Stanton1b_Ruptura_1": {
+      "name": "Ruptura PAF 1",
+      "zone": "Outpost",
+      "system": "Stanton"
+    },
+    "Outpost_PAF_Stanton1b_Ruptura_2": {
+      "name": "Raptura PAF 2",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Outpost_OLP_Stanton1b_Ruptura": {
+      "name": "Raptura OLP",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "{\"type\":\"LOCATION_HINT\",\"value\":\"util cmpd wrhse lge 001 rund c final int\"}": {
+      "name": "?",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Outpost_OLP_Stanton2b_Lamina": {
+      "name": "Lamina OLP",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "RR_CRU_L1": {
+      "name": "Cru L1 Station",
+      "zone": "Armistice Zone",
+      "system": "Auto"
+    },
+    "RR_JP_PyroStanton": {
+      "name": "Stanton Gateway",
+      "zone": "Space Station",
+      "system": "Pyro"
+    },
+    "RR_P3_LEO": {
+      "name": "Orbituary",
+      "zone": "Space Station",
+      "system": "Pyro"
+    },
+    "PrisonMine_Stanton1b": {
+      "name": "Prison",
+      "zone": "Restricted Area",
+      "system": "Stanton"
+    },
+    "Outpost_PAF_Stanton1b_Vivere_1": {
+      "name": "PAF Vivere 1",
+      "zone": "Outpost",
+      "system": "Stanton"
+    },
+    "Outpost_PAF_Stanton1b_Vivere_2": {
+      "name": "PAF Vivere 2",
+      "zone": "Outpost",
+      "system": "Stanton"
+    },
+    "Stanton2c_ASD_Delve_Facility_005": {
+      "name": "ASD",
+      "zone": "Facility",
+      "system": "Stanton"
+    },
+    "TheCollectorsAsteriod_Stanton2": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "Stanton3a_ASD_Delve_Facility_007": {
+      "name": "ASD Lyria 1",
+      "zone": "Facility",
+      "system": "Stanton"
+    },
+    "Stanton3a_ASD_Delve_Facility_008": {
+      "name": "Stanton ASD 08",
+      "zone": "Facility",
+      "system": "Stanton"
+    },
+    "TheCollectorsAsteriod_Stanton1": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "TheCollectorsAsteriod_Stanton4": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "UGF_Security_Stanton1_HDSFTompkins": {
+      "name": "HDSF-Tompkins",
+      "zone": "Outpost",
+      "system": "Stanton"
+    },
+    "DC_Stan_Hurston_S1_Farnesway_FOB": {
+      "name": "Security Compound",
+      "zone": "Outpost",
+      "system": "Stanton"
+    },
+    "Outpost_Col_M_Pyro_HH_scrp_Pyro6_LastLandings_Junkpile": {
+      "name": "Last Landings",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Outpost_EMShelter": {
+      "name": "Eager Flats Aid Shelter",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Cave_Unoccupied_Stanton1d": {
+      "name": "Ita Cave",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "AsteroidClusters_Nyx": {
+      "name": "Glaciem Ring Cluster",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "s3b_asd_facility_004": {
+      "name": "Wala Asd Facility 004",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Stanton3b_ASD_Delve_Facility_004": {
+      "name": "Wala Asd Delve Facility 4",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "MiningAsteroidBase_Stanton": {
+      "name": "Asteroid Mining Base",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Outpost_Colonial_Ruin_Stanton1d": {
+      "name": "Ita Derelict Outpost",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "Stanton3a_ASD_Delve_Facility_004": {
+      "name": "Lyria ASD Delve Facility 4",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "RR_CRU_LEO": {
+      "name": "Seraphim Station",
+      "zone": "Space Station",
+      "system": "Stanton"
+    },
+    "Stanton3b_ASD_Delve_Facility_003": {
+      "name": "Wala ASD Delve Facility 3",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "RR_ARC_LEO": {
+      "name": "Baijini Point",
+      "zone": "Space Station",
+      "system": "Stanton"
+    },
+    "Stanton2b_ShubinMining_SCD1": {
+      "name": "Shubin Mining SCD1",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "RR_HUR_L2": {
+      "name": "Hur L2",
+      "zone": "Auto",
+      "system": "Stanton"
+    },
+    "RR_MIC_LEO": {
+      "name": "Port Tressler",
+      "zone": "Space Station",
+      "system": "Stanton"
+    },
+    "Stanton4_NewBabbage": {
+      "name": "New Babbage",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "RR_JP_NyxCastra": {
+      "name": "Stanton Gateway",
+      "zone": "Space Station",
+      "system": "Nyx"
+    },
+    "RR_JP_StantonMagnus": {
+      "name": "Nyx Gateway",
+      "zone": "Space Station",
+      "system": "Stanton"
+    },
+    "Pyro2_Outpost_col_m_trdp_indy_001": {
+      "name": "Jackson's Swap",
+      "zone": "Outpost",
+      "system": "Pyro"
+    },
+    "Pyro2_Outpost_col_m_scrp_indy_001": {
+      "name": "Sunset Mesa",
+      "zone": "Outpost",
+      "system": "Pyro"
+    },
+    "RR_P3_L3": {
+      "name": "Patch City",
+      "zone": "Space Station",
+      "system": "Pyro"
+    },
+    "Pyro3_Outpost_col_m_trdpst_otlw_006": {
+      "name": "Golden Riviera",
+      "zone": "Outpost",
+      "system": "Pyro"
+    },
+    "Stanton2b_ASD_Delve_Facility_002": {
+      "name": "Daymar ASD Facility 2",
+      "zone": "Facility",
+      "system": "Stanton"
+    },
+    "LOCATION_3944210345": {
+      "name": "Magda",
+      "zone": "Auto",
+      "system": "Stanton"
+    },
+    "Ht_D_Airlock_Small-000": {
+      "name": "Airlock",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "LOCATION_308639451": {
+      "name": "Everus Harbour",
+      "type": "space_station",
+      "system": "Stanton",
+      "parentBody": "Hurston"
+    },
+    "LOCATION_2788831084": {
+      "name": "HDMS Ryder",
+      "zone": "Auto",
+      "system": "Stanton"
+    },
+    "LOCATION_467417103": {
+      "name": "Magda",
+      "zone": "Auto",
+      "system": "Stanton"
+    },
+    "LOCATION_2713355646": {
+      "name": "Magda",
+      "zone": "Auto",
+      "system": "Stanton"
+    },
+    "LOCATION_1902223495": {
+      "name": "Pyro gateway",
+      "type": "space_station",
+      "system": "Stanton",
+      "parentBody": ""
+    },
+    "sand01_occu_001_size03_001_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size04_004_int": {
+      "name": "R R H U R L2",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "sand01_unoc_001_size03_004_int": {
+      "name": "R R H U R L2",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "sand01_unoc_001_size05_003_int": {
+      "name": "R R H U R L2",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "hangar_smlfrnt_001_rest_occu": {
+      "name": "R R H U R L2",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "hangar_medfrnt_001_rest_occu": {
+      "name": "R R H U R L2",
+      "zone": "Auto",
+      "system": "Auto"
+    },
+    "rs_clinic_pyro-stan_jp1": {
+      "name": "Stanton Gateway (Pyro)",
+      "type": "space_station",
+      "system": "Pyro",
+      "parentBody": ""
+    },
+    "TheCollectorsAsteroid_Stanton2": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "TheCollectorsAsteroid_Stanton4": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "TheCollectorsAsteroid_Stanton1": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "LOCATION_1964978648": {
+      "name": "Orbit",
+      "type": "moon",
+      "system": "Stanton",
+      "parentBody": "Hurston"
+    },
+    "LOCATION_4093098225": {
+      "name": "Vivere PAF 2",
+      "type": "poi",
+      "system": "Stanton",
+      "parentBody": "Hurston"
+    },
+    "struct_m_base_shp_001": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "struct_m_base_hgr_l_001": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "RR_HUR_LEO": {
+      "name": "Everus Harbour",
+      "type": "space_station",
+      "system": "Stanton",
+      "parentBody": "Hurston"
+    },
+    "TheCollectorsAsteroid_Stanton3": {
+      "name": "TheCollectorsAsteroid_Stanton3",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "StreamingSOC_util_cmpd_wrhse_lge_001_rund_c_final_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "StreamingSOC_util_cmpd_wrhse_lge_001_rund_b_final_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "StreamingSOC_util_cmpd_wrhse_lge_001_rund_a_final_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "LOCATION_3278159406": {
+      "name": "Jump Town",
+      "type": "bunker",
+      "system": "Stanton",
+      "parentBody": "Daymar"
+    },
+    "LOCATION_1266458994": {
+      "name": "QV Breaker 304 - digit",
+      "type": "space_station",
+      "system": "Nyx",
+      "parentBody": ""
+    },
+    "LOCATION_1988372641": {
+      "name": "Orbit",
+      "type": "moon",
+      "system": "Stanton",
+      "parentBody": "Yela"
+    },
+    "sand01_unoc_001_size06_004_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size03_001_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size06_001_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size05_001_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size02_004_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size02_001_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size02_002_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size02_001_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size04_001_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size06_002_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size06_003_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size02_003_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size02_003_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size03_003_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size05_002_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "util_dish_001_rund_c_final_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "util_cmpd_wrhse_sml_001_rund_b_final_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "util_dish_001_rund_b_final_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "util_cmpd_wrhse_sml_001_rund_a_final_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "util_dish_001_rund_a_final_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    }
+  },
+  "customShipNames": {
+    "AEGS_Tiburon": "Aegis Tiburon",
+    "RSI_Scorpius": "RSI Scorpius",
+    "DRAK_Golem": "Drake Golem",
+    "ORIG_m80": "Origin m80",
+    "ANVL_Paladin": "Anvil Paladin",
+    "AEGS_Sabre_Firebird": "Aegis Sabre Firebird",
+    "RSI_Meteor_Collector_Military": "RSI Meteor Collector Military",
+    "CRUS_Starfighter_Ion": "Crusader Starfighter Ion",
+    "ANVL_Lightning_F8C": "Anvil Lightning F8C",
+    "RSI_Hermes": "RSI Hermes",
+    "CRUS_Spirit_C1": "Crusader Spirit C1",
+    "DRAK_Cutlass_Black": "Drake Cutlass Black",
+    "MISC_Fortune_Teach": "MISC Fortune Teach",
+    "KRIG_P52_Merlin": "KRIG P52 Merlin",
+    "GAMA_Railen": "GAMA Railen",
+    "ARGO_RAFT": "ARGO RAFT",
+    "ANVL_Arrow": "Anvil Arrow",
+    "ORIG_400i": "Origin 400i",
+    "DRAK_Command_Module": "Drake Command Module",
+    "RSI_Polaris": "RSI Polaris",
+    "DRAK_Dragonfly": "Drake Dragonfly",
+    "AEGS_Eclipse": "Aegis Eclipse",
+    "RSI_Aurora_Mk2": "RSI Aurora Mk2",
+    "AEGS_Avenger_Titan": "Aegis Avenger Titan",
+    "RSI_Perseus": "RSI Perseus",
+    "ARGO_MOTH": "ARGO MOTH",
+    "MISC_Freelancer_MAX": "MISC Freelancer MAX",
+    "AEGS_Vanguard_Sentinel": "Aegis Vanguard Sentinel",
+    "ANVL_Asgard": "Anvil Asgard",
+    "ANVL_Hornet_F7CM_Mk2": "Anvil Hornet F7CM Mk2",
+    "RSI_Constellation_Andromeda": "RSI Constellation Andromeda",
+    "CRUS_Starlifter_C2": "Crusader Starlifter C2",
+    "RSI_Aurora_GS_MR": "RSI Aurora GS MR",
+    "ANVL_Hornet_F7CS_Mk2": "Anvil Hornet F7CS Mk2",
+    "RSI_Constellation_Taurus": "RSI Constellation Taurus",
+    "MISC_Starlancer_Max": "MISC Starlancer Max",
+    "DRAK_Caterpillar": "Drake Caterpillar",
+    "ARGO_SRV": "ARGO SRV",
+    "MISC_Fury": "MISC Fury",
+    "ANVL_Hornet_F7A_Mk2": "Anvil Hornet F7A Mk2",
+    "ESPR_Talon": "Esperia Talon",
+    "KRIG_L21_Wolf": "KRIG L21 Wolf",
+    "MISC_Hull_A": "MISC Hull A",
+    "RSI_Salvation": "RSI Salvation",
+    "KRIG_L22_AlphaWolf": "KRIG L22 AlphaWolf",
+    "ESPR_Prowler_Utility": "Esperia Prowler Utility",
+    "MISC_Razor_EX": "MISC Razor EX",
+    "CRUS_Intrepid": "Crusader Intrepid",
+    "MISC_Prospector_PU_AI_NT_NonLethal": "MISC Prospector PU AI NT NonLethal",
+    "MISC_Prospector_PU_AI_NineTails": "MISC Prospector PU AI NineTails",
+    "ORIG_m50_PU_AI_NT": "Origin m50 PU AI NT",
+    "RSI_Mantis_PU_AI_NineTails": "RSI Mantis PU AI NineTails",
+    "DRAK_Cutter": "Drake Cutter",
+    "ANVL_C8_Pisces": "Anvil C8 Pisces",
+    "ORIG_100i": "Origin 100i",
+    "DRAK_Vulture": "Drake Vulture",
+    "MISC_Prospector_PU_AI_NT": "MISC Prospector PU AI NT",
+    "ANVL_C8R_Pisces": "Anvil C8R Pisces",
+    "RSI_Zeus_CL": "RSI Zeus CL",
+    "GLSN_Shiv": "GLSN Shiv",
+    "CNOU_Mustang_Alpha": "CO Mustang Alpha",
+    "RSI_Constellation_Phoenix": "RSI Constellation Phoenix",
+    "KRIG_P72_Archimedes": "KRIG P72 Archimedes",
+    "MISC_Reliant": "MISC Reliant",
+    "GRIN_PTV": "GRIN PTV",
+    "MISC_Freelancer_MIS": "MISC Freelancer MIS",
+    "RSI_Aurora_GS_LX": "RSI Aurora GS LX",
+    "CNOU_Mustang_Gamma": "CO Mustang Gamma",
+    "MISC_Hull_B": "MISC Hull B",
+    "MISC_Starlancer_TAC": "MISC Starlancer TAC",
+    "DRAK_Pitbull": "Drake Pitbull",
+    "DRAK_Ironclad": "Drake Ironclad",
+    "MRAI_Guardian_MX": "MRAI Guardian MX",
+    "CNOU_Mustang_Beta": "CO Mustang Beta",
+    "AEGS_Retaliator": "Aegis Retaliator",
+    "DRAK_Clipper": "Drake Clipper",
+    "ANVL_Hornet_F7_Mk2_Collector_Mod": "Anvil Hornet F7 Mk2 Collector Mod",
+    "AEGS_Gladius": "Aegis Gladius",
+    "RSI_Aurora_GS_SE": "RSI Aurora GS SE",
+    "ANVL_C8X_Pisces_Expedition": "Anvil C8X Pisces Expedition",
+    "MISC_Hull_C": "MISC Hull C",
+    "VNCL_Stinger": "VNCL Stinger",
+    "RSI_Meteor": "RSI Meteor"
+  },
+  "customPatterns": [],
+  "patternOverrides": {},
+  "bodyMap": {
+    "pyro2": "Monox",
+    "RR_P2_L4": "Rough & Ready - Pyro 2 L4"
+  }
+}
