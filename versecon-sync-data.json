@@ -280,12 +280,6 @@
       "zone": "Auto",
       "system": "Stanton"
     },
-    "LOCATION_1902223495": {
-      "name": "Pyro gateway",
-      "type": "space_station",
-      "system": "Stanton",
-      "parentBody": ""
-    },
     "sand01_occu_001_size03_001_int": {
       "name": "Ignore",
       "type": "ignore",
@@ -612,10 +606,88 @@
       "parentBody": ""
     },
     "LOCATION_2610496815": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "LOCATION_1902223495": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size04_003_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size04_002_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "hangar_medfrnt_001_orison": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "ugf_lta_a_int_0004_drugs": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size03_004_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "util cmpd wrhse lge 001 rund a final int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "util cmpd wrhse lge 001 rund b final int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "DC_Stan_Hurston_S1_Farnesway": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "MiningAsteroidBase_Pyro_Hangar": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "LOCATION_2493660041": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "LOCATION_3212831932": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "LOCATION_2239851768": {
       "name": "Orbiting",
       "type": "moon",
       "system": "Stanton",
-      "parentBody": "Daymar"
+      "parentBody": "Cellin"
     }
   },
   "customShipNames": {
@@ -711,7 +783,17 @@
     "ANVL_Hurricane_PU_AI_UEE": "Anvil Hurricane PU AI UEE",
     "ANVL_Hornet_F7C_Mk2": "Anvil Hornet F7C Mk2",
     "GRIN_MDC": "GRIN MDC",
-    "MRAI_Guardian_QI": "MRAI Guardian QI"
+    "MRAI_Guardian_QI": "MRAI Guardian QI",
+    "CRUS_Star_Runner": "Crusader Star Runner",
+    "DRAK_Cutlass_Blue": "Drake Cutlass Blue",
+    "DRAK_Cutlass_Red": "Drake Cutlass Red",
+    "AEGS_Idris_P": "Aegis Idris P",
+    "GAMA_Syulen": "GAMA Syulen",
+    "MISC_Freelancer": "MISC Freelancer",
+    "CRUS_Starfighter_Inferno": "Crusader Starfighter Inferno",
+    "CRUS_Starlifter_A2": "Crusader Starlifter A2",
+    "ARGO_MOLE": "ARGO MOLE",
+    "ANVL_Terrapin_Medic": "Anvil Terrapin Medic"
   },
   "customPatterns": [],
   "patternOverrides": {},
