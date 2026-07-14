@@ -802,6 +802,60 @@
       "type": "ignore",
       "system": "",
       "parentBody": ""
+    },
+    "Cave_Unoccupied_Pyro3": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "Outpost_Colonial_Ruin_Stanton2b_Small_5": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "LOCATION_1041448922": {
+      "name": "Orbiting",
+      "type": "planet",
+      "system": "Stanton",
+      "parentBody": "ArcCorp"
+    },
+    "RestStop_Pyro_Rundown_RR_P3_LEO_Orb_Clinic": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "AsteroidClusters_Pyro_Base_Encounter_2bases": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "LandingZone_Stanton_4_Rooftop": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "AsteroidBase_Pyro_Encounter_XT_Hard_Hangar": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "ASDFacility_WingB-Labs": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "LOCATION_308027484": {
+      "name": "Orbiting",
+      "type": "planet",
+      "system": "Stanton",
+      "parentBody": "microTech"
     }
   },
   "customShipNames": {
@@ -918,7 +972,13 @@
     "MISC_Fortune": "MISC Fortune",
     "ANVL_Carrack": "Anvil Carrack",
     "VNCL_Blade": "VNCL Blade",
-    "GAMA_Tyilui": "GAMA Tyilui"
+    "GAMA_Tyilui": "GAMA Tyilui",
+    "AEGS_Vanguard_PU_AI_Xenothreat": "Aegis Vanguard PU AI Xenothreat",
+    "ANVL_Valkyrie_AI_PU_AI_Xenothreat": "Anvil Valkyrie AI PU AI Xenothreat",
+    "ANVL_Valkyrie_PU_AI_Xenothreat": "Anvil Valkyrie PU AI Xenothreat",
+    "AEGS_Hammerhead_PU_AI_Xenothreat": "Aegis Hammerhead PU AI Xenothreat",
+    "AEGS_Idris_M_PU_AI_Xenothreat_BoardedCombat": "Aegis Idris M PU AI Xenothreat BoardedCombat",
+    "ORIG_315p": "Origin 315p"
   },
   "customPatterns": [],
   "patternOverrides": {},
