@@ -606,10 +606,10 @@
       "parentBody": ""
     },
     "LOCATION_2610496815": {
-      "name": "Ignore",
-      "type": "ignore",
-      "system": "",
-      "parentBody": ""
+      "name": "Orbiting",
+      "type": "moon",
+      "system": "Stanton",
+      "parentBody": "Daymar"
     },
     "LOCATION_1902223495": {
       "name": "Ignore",
@@ -688,6 +688,48 @@
       "type": "moon",
       "system": "Stanton",
       "parentBody": "Cellin"
+    },
+    "Outpost_Colonial_Ruin_Stanton1_Small_6": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size03_002_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size03_001_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size04_004_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size05_004_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size04_001_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "LOCATION_438795353": {
+      "name": "OLP Attritus",
+      "type": "outpost",
+      "system": "Stanton",
+      "parentBody": "Daymar"
     }
   },
   "customShipNames": {
@@ -793,7 +835,11 @@
     "CRUS_Starfighter_Inferno": "Crusader Starfighter Inferno",
     "CRUS_Starlifter_A2": "Crusader Starlifter A2",
     "ARGO_MOLE": "ARGO MOLE",
-    "ANVL_Terrapin_Medic": "Anvil Terrapin Medic"
+    "ANVL_Terrapin_Medic": "Anvil Terrapin Medic",
+    "ANVL_Hawk": "Anvil Hawk",
+    "RSI_Constellation_Aquila": "RSI Constellation Aquila",
+    "ANVL_Hornet_F7CR_Mk2": "Anvil Hornet F7CR Mk2",
+    "MRAI_Pulse": "MRAI Pulse"
   },
   "customPatterns": [],
   "patternOverrides": {},
