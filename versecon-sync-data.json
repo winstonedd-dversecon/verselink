@@ -678,10 +678,10 @@
       "parentBody": ""
     },
     "LOCATION_3212831932": {
-      "name": "Ignore",
-      "type": "ignore",
-      "system": "",
-      "parentBody": ""
+      "name": "Arccorp Mining 141",
+      "type": "outpost",
+      "system": "Stanton",
+      "parentBody": "Daymar"
     },
     "LOCATION_2239851768": {
       "name": "Orbiting",
@@ -728,6 +728,66 @@
     "LOCATION_438795353": {
       "name": "OLP Attritus",
       "type": "outpost",
+      "system": "Stanton",
+      "parentBody": "Daymar"
+    },
+    "util_cmpd_bunker_001_rund_a_final_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_unoc_001_size02_002_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "rock01_unoc_001_size05_003_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "RestStop_Pyro_Rundown_RR_P2_L4_CheckMate_Cargo": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "sand01_occu_001_size03_002_int": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "LandingZone_Stanton_4_Hospital": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "ShipGraveyard_Space": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "AsteroidClusters_Pyro_LagrangePoint": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "ASDFacility-Delving-Stanton4c": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "LOCATION_1854082199": {
+      "name": "TPF",
+      "type": "bunker",
       "system": "Stanton",
       "parentBody": "Daymar"
     }
@@ -839,7 +899,13 @@
     "ANVL_Hawk": "Anvil Hawk",
     "RSI_Constellation_Aquila": "RSI Constellation Aquila",
     "ANVL_Hornet_F7CR_Mk2": "Anvil Hornet F7CR Mk2",
-    "MRAI_Pulse": "MRAI Pulse"
+    "MRAI_Pulse": "MRAI Pulse",
+    "BANU_Defender": "Banu Defender",
+    "XIAN_Scout": "XIAN Scout",
+    "ORIG_X1_Force": "Origin X1 Force",
+    "MISC_Fortune": "MISC Fortune",
+    "ANVL_Carrack": "Anvil Carrack",
+    "VNCL_Blade": "VNCL Blade"
   },
   "customPatterns": [],
   "patternOverrides": {},
