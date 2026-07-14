@@ -856,6 +856,84 @@
       "type": "planet",
       "system": "Stanton",
       "parentBody": "microTech"
+    },
+    "LOCATION_2719332593": {
+      "name": "Orbiting",
+      "type": "moon",
+      "system": "Stanton",
+      "parentBody": "Euterpe"
+    },
+    "hangar_xltop_001_newbab": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "LOCATION_4167598756": {
+      "name": "Orbiting",
+      "type": "moon",
+      "system": "Stanton",
+      "parentBody": "Calliope"
+    },
+    "ugf_lta_a_int_0001": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "ugf_lta_a_int_0003": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "ugf_lta_a_int_0004": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "LOCATION_2763680401": {
+      "name": "MT Security DXC-25G-L",
+      "type": "bunker",
+      "system": "Stanton",
+      "parentBody": "Calliope"
+    },
+    "MISC_Freelancer_Space_Stanton3": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "hangar_smlfrnt_001_newbab": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "hangar_medtop_001_newbab": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "Outpost_Mining_Admin_Stanton3b_ArcCorpMiningArea061": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "st4_drlct_rclmr_sfce_frst_ovgr_a": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "LOCATION_2147648880": {
+      "name": "Port Tressler",
+      "type": "space_station",
+      "system": "Stanton",
+      "parentBody": "microTech"
     }
   },
   "customShipNames": {
@@ -978,7 +1056,9 @@
     "ANVL_Valkyrie_PU_AI_Xenothreat": "Anvil Valkyrie PU AI Xenothreat",
     "AEGS_Hammerhead_PU_AI_Xenothreat": "Aegis Hammerhead PU AI Xenothreat",
     "AEGS_Idris_M_PU_AI_Xenothreat_BoardedCombat": "Aegis Idris M PU AI Xenothreat BoardedCombat",
-    "ORIG_315p": "Origin 315p"
+    "ORIG_315p": "Origin 315p",
+    "ANVL_Hurricane": "Anvil Hurricane",
+    "GRIN_UTV": "GRIN UTV"
   },
   "customPatterns": [],
   "patternOverrides": {},
