@@ -790,6 +790,18 @@
       "type": "bunker",
       "system": "Stanton",
       "parentBody": "Daymar"
+    },
+    "MiningAsteroidBase_Nyx_Hangar": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "hangar_lrgtop_001_orison": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
     }
   },
   "customShipNames": {
@@ -905,7 +917,8 @@
     "ORIG_X1_Force": "Origin X1 Force",
     "MISC_Fortune": "MISC Fortune",
     "ANVL_Carrack": "Anvil Carrack",
-    "VNCL_Blade": "VNCL Blade"
+    "VNCL_Blade": "VNCL Blade",
+    "GAMA_Tyilui": "GAMA Tyilui"
   },
   "customPatterns": [],
   "patternOverrides": {},
