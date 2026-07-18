@@ -240,11 +240,6 @@
       "zone": "Facility",
       "system": "Stanton"
     },
-    "LOCATION_3944210345": {
-      "name": "Magda",
-      "zone": "Auto",
-      "system": "Stanton"
-    },
     "Ht_D_Airlock_Small-000": {
       "name": "Airlock",
       "zone": "Auto",
@@ -266,11 +261,6 @@
       "type": "planet",
       "system": "Stanton",
       "parentBody": "Hurston"
-    },
-    "LOCATION_2713355646": {
-      "name": "Magda",
-      "zone": "Auto",
-      "system": "Stanton"
     },
     "sand01_occu_001_size03_001_int": {
       "name": "Ignore",
@@ -351,12 +341,6 @@
       "system": "",
       "parentBody": ""
     },
-    "RR_HUR_LEO": {
-      "name": "Everus Harbour",
-      "type": "space_station",
-      "system": "Stanton",
-      "parentBody": "Hurston"
-    },
     "TheCollectorsAsteroid_Stanton3": {
       "name": "TheCollectorsAsteroid_Stanton3",
       "type": "ignore",
@@ -388,8 +372,8 @@
       "parentBody": "Daymar"
     },
     "LOCATION_1266458994": {
-      "name": "QV Breaker 304 - digit",
-      "type": "space_station",
+      "name": "QV Breaker Station",
+      "type": "asteroid_station",
       "system": "Nyx",
       "parentBody": ""
     },
@@ -1005,10 +989,52 @@
       "system": "Stanton",
       "parentBody": "Aberdeen"
     },
-    "LOCATION_1409305106": {
-      "name": "Everus Harbour Medical Wing",
-      "type": "room",
+    "QuantumTravel": {
+      "name": "Quantum Travel",
+      "type": "other",
+      "system": "",
+      "parentBody": "Quantum"
+    },
+    "LOCATION_2713355646": {
+      "name": "Orbiting",
+      "type": "moon",
       "system": "Stanton",
+      "parentBody": "Magda"
+    },
+    "LOCATION_2283360369": {
+      "name": "HDPC FARNESWAY",
+      "type": "distro_center",
+      "system": "Stanton",
+      "parentBody": "Hurston"
+    },
+    "LOCATION_545303868": {
+      "name": "HDSF Millerano",
+      "type": "outpost",
+      "system": "Stanton",
+      "parentBody": "Hurston"
+    },
+    "LOCATION_2898439934": {
+      "name": "Picker's Field",
+      "type": "outpost",
+      "system": "Stanton",
+      "parentBody": "Hurston"
+    },
+    "LOCATION_4147097116": {
+      "name": "HDMS - Pinewood",
+      "type": "outpost",
+      "system": "Stanton",
+      "parentBody": "Hurston"
+    },
+    "StreamingSOC_int_s1_dc_hrst_farnesway": {
+      "name": "Approaching",
+      "type": "distro_center",
+      "system": "Stanton",
+      "parentBody": "HDPC FARNESWAY"
+    },
+    "Nyx_Levski": {
+      "name": "Levski",
+      "type": "city",
+      "system": "Nyx",
       "parentBody": ""
     }
   },
