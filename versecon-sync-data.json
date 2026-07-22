@@ -1,11 +1,5 @@
 {
   "customLocations": {
-    "Checkmate": {
-      "name": "Checkmate",
-      "type": "contested_zone",
-      "system": "Pyro",
-      "parentBody": "Bloom"
-    },
     "Stanton1 Lorville": {
       "name": "Lorville",
       "zone": "Auto",
@@ -1038,9 +1032,9 @@
       "parentBody": ""
     },
     "LOCATION_126935608": {
-      "name": "Battaglia Mission",
-      "type": "station",
-      "system": "Nyx",
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
       "parentBody": ""
     },
     "LOCATION_3723364946": {
@@ -1066,6 +1060,24 @@
       "type": "moon",
       "system": "Pyro",
       "parentBody": "Pyro IV"
+    },
+    "LOCATION_4075597421": {
+      "name": "Levski",
+      "type": "city",
+      "system": "Nyx",
+      "parentBody": ""
+    },
+    "AsteroidClusterBase_Nyx_Rockcracker": {
+      "name": "Nyx Rockcracker",
+      "type": "poi",
+      "system": "Nyx",
+      "parentBody": ""
+    },
+    "LOCATION_810966700": {
+      "name": "Checkmate",
+      "type": "space_station",
+      "system": "Pyro",
+      "parentBody": "Monox"
     }
   },
   "customShipNames": {
@@ -1607,58 +1619,6 @@
     }
   },
   "customPatterns": [
-    {
-      "id": "loading_platform_gq2sv3l6g",
-      "event": "LOADING_PLATFORM",
-      "regex": "/(?:\\[LoadingPlatformManager_([^\\]]+)\\]\\s+Platform state changed|Platform manager 'LoadingPlatformManager_([^']+)')/i",
-      "notes": "Built-in pattern from navigation.js parser",
-      "category": "Navigation",
-      "source": "custom",
-      "lastTriggered": "2026-07-20T13:32:59.547Z"
-    },
-    {
-      "id": "platform_changed_1gveizcwg",
-      "event": "PLATFORM_CHANGED",
-      "regex": "/Loading Platform Manager \\[(LoadingPlatformManager_[^\\]]+)\\] Platform state changed to (\\w+)/i",
-      "notes": "Built-in pattern from hangar.js parser",
-      "category": "Vehicle",
-      "source": "custom",
-      "lastTriggered": "2026-07-20T13:32:59.122Z"
-    },
-    {
-      "id": "cargo_elevator_pm2xjnxgl",
-      "event": "CARGO_ELEVATOR",
-      "regex": "/<CSCLoadingPlatformManager::OnLoadingPlatformStateChanged>.*?\\[LoadingPlatformManager_([^\\]]+)\\] Platform state changed to (\\w+)/i",
-      "notes": "Built-in pattern from navigation.js parser",
-      "category": "Navigation",
-      "source": "custom",
-      "lastTriggered": "2026-07-20T13:32:59.122Z"
-    },
-    {
-      "id": "hangar_state",
-      "category": "Vehicle",
-      "name": "Hangar State Change",
-      "status": "verified",
-      "regex": "<PlatformManager>.*Changed state to (\\w+)",
-      "example": "<PlatformManager> Changed state to MovingPlatformToCallPosition",
-      "event": "HANGAR_STATE",
-      "alert": "none",
-      "reaction": "",
-      "warning": "",
-      "notes": "States mapped: MovingPlatform*=TRANSIT, Idle*=READY, Closed*=CLOSED.",
-      "addedBy": "agent",
-      "addedDate": "2026-02-14",
-      "lastTriggered": "2026-07-20T13:32:58.802Z"
-    },
-    {
-      "id": "inventory_3ba8uedzh",
-      "event": "INVENTORY",
-      "regex": "/<InventoryManagement>\\s+Request\\[(\\d+)\\]\\s+for\\s+'([^']+)'\\s+\\[\\d+\\]\\s+Result\\[(\\w+)\\]/i",
-      "notes": "Inventory management pattern from inventory.js parser",
-      "category": "Inventory",
-      "source": "custom",
-      "lastTriggered": "2026-07-20T13:32:53.804Z"
-    },
     {
       "id": "builtin_social_party_stream_out",
       "name": "Party Stream Out",
@@ -2442,23 +2402,6 @@
       "addedDate": "2026-02-20"
     },
     {
-      "id": "builtin_combat_player_died",
-      "name": "Player Died",
-      "category": "Combat",
-      "event": "PLAYER_DIED",
-      "regex": "/Local\\s+player\\s+died/i",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from combat.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
       "id": "builtin_combat_simple_actor_death",
       "name": "Simple Actor Death",
       "category": "Combat",
@@ -2548,7 +2491,24 @@
       "name": "Death Detailed",
       "category": "Combat",
       "event": "DEATH_DETAILED",
-      "regex": "/<Actor Death>.*CActor::Kill:\\s*'([^']+)'\\s*\\[\\d+\\].*killed by\\s*'([^']+)'\\s*\\[\\d+\\].*using\\s*'([^']+)'/i",
+      "regex": "/<Actor Death>.*?'([^']+)'\\s*\\[\\d+\\].*?killed by\\s+'([^']+)'\\s*\\[\\d+\\].*?using\\s+'([^']+)'.*?damage type\\s+'([^']+)'/i",
+      "status": "verified",
+      "source": "builtin",
+      "hue": "none",
+      "overlay": "none",
+      "alert": "none",
+      "warning": "",
+      "notes": "Built-in pattern from combat.js parser",
+      "example": "",
+      "addedBy": "system",
+      "addedDate": "2026-02-20"
+    },
+    {
+      "id": "builtin_combat_actor_state_dead",
+      "name": "Actor State Dead",
+      "category": "Combat",
+      "event": "ACTOR_STATE_DEAD",
+      "regex": "/<\\[ActorState\\] Dead>.*?Actor '([^']+)'\\s*\\[\\d+\\].*?from zone '([^']+)'\\s*\\[\\d+\\].*?to zone '([^']+)'/i",
       "status": "verified",
       "source": "builtin",
       "hue": "none",
@@ -2599,40 +2559,6 @@
       "status": "verified",
       "source": "builtin",
       "notes": "Primary pattern from inventory.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
-      "id": "builtin_vehicle_ship_exit",
-      "name": "Ship Exit",
-      "category": "Vehicle",
-      "event": "SHIP_EXIT",
-      "regex": "/ClearDriver.*releasing control token for '([^']+)'/i",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from vehicle.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
-      "id": "builtin_vehicle_ship_enter",
-      "name": "Ship Enter",
-      "category": "Vehicle",
-      "event": "SHIP_ENTER",
-      "regex": "/<SHUDEvent_OnNotification> You have joined channel '.*? .*? .*? : .*?'/i",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "feed",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from vehicle.js parser",
       "example": "",
       "addedBy": "system",
       "addedDate": "2026-02-20"
@@ -2825,23 +2751,6 @@
       "addedDate": "2026-02-20"
     },
     {
-      "id": "builtin_session_server_connect",
-      "name": "Server Connect",
-      "category": "Session",
-      "event": "SERVER_CONNECT",
-      "regex": "/<Join PU>.*address\\[([^\\]]+)\\].*port\\[([^\\]]+)\\].*shard\\[([^\\]]+)\\]/i",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "feed",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from session.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
       "id": "builtin_session_context_done",
       "name": "Context Done",
       "category": "Session",
@@ -2990,23 +2899,6 @@
       "alert": "none",
       "warning": "",
       "notes": "Built-in pattern from session.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
-      "id": "builtin_navigation_location_room",
-      "name": "Location Room",
-      "category": "Navigation",
-      "event": "LOCATION_ROOM",
-      "regex": "/RoomName:\\s*(.+?)\\s*$/i",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from navigation.js parser",
       "example": "",
       "addedBy": "system",
       "addedDate": "2026-02-20"
@@ -3745,6 +3637,22 @@
       "hueColor": "green",
       "notes": "Fires once when player loads into the universe. Guards prevent multiple emissions.",
       "addedBy": "agent",
+      "addedDate": "2026-02-14",
+      "lastTriggered": "2026-07-21T21:19:42.763Z"
+    },
+    {
+      "id": "hangar_state",
+      "category": "Vehicle",
+      "name": "Hangar State Change",
+      "status": "verified",
+      "regex": "<PlatformManager>.*Changed state to (\\w+)",
+      "example": "<PlatformManager> Changed state to MovingPlatformToCallPosition",
+      "event": "HANGAR_STATE",
+      "alert": "none",
+      "reaction": "",
+      "warning": "",
+      "notes": "States mapped: MovingPlatform*=TRANSIT, Idle*=READY, Closed*=CLOSED.",
+      "addedBy": "agent",
       "addedDate": "2026-02-14"
     },
     {
@@ -4444,14 +4352,6 @@
       "source": "custom"
     },
     {
-      "id": "player_died_qptq2ytno",
-      "event": "PLAYER_DIED",
-      "regex": "/Local\\s+player\\s+died/i",
-      "notes": "Built-in pattern from combat.js parser",
-      "category": "Combat",
-      "source": "custom"
-    },
-    {
       "id": "simple_actor_death_363ccs4i7",
       "event": "SIMPLE_ACTOR_DEATH",
       "regex": "/Actor\\s+death/i",
@@ -4500,19 +4400,19 @@
       "source": "custom"
     },
     {
-      "id": "actor_state_dead_aa4xxtc1s",
-      "event": "ACTOR_STATE_DEAD",
-      "regex": "/<\\[ActorState\\] Dead>.*?Actor '([^']+)'\\s*\\[\\d+\\].*?from zone '([^']+)'\\s*\\[\\d+\\].*?to zone '([^']+)'/i",
-      "notes": "Built-in pattern from combat.js parser",
-      "category": "Combat",
-      "source": "custom"
-    },
-    {
       "id": "actor_death_7stst59zw",
       "event": "ACTOR_DEATH",
       "regex": "/<Actor Death>/",
       "notes": "Built-in pattern from combat.js parser",
       "category": "Combat",
+      "source": "custom"
+    },
+    {
+      "id": "inventory_3ba8uedzh",
+      "event": "INVENTORY",
+      "regex": "/<InventoryManagement>\\s+Request\\[(\\d+)\\]\\s+for\\s+'([^']+)'\\s+\\[\\d+\\]\\s+Result\\[(\\w+)\\]/i",
+      "notes": "Inventory management pattern from inventory.js parser",
+      "category": "Inventory",
       "source": "custom"
     },
     {
@@ -4591,6 +4491,14 @@
       "id": "atc_assigned_meg0l8xqt",
       "event": "ATC_ASSIGNED",
       "regex": "/Notification \"Landing pad ([^\"]+) assigned\"/i",
+      "notes": "Built-in pattern from hangar.js parser",
+      "category": "Vehicle",
+      "source": "custom"
+    },
+    {
+      "id": "platform_changed_1gveizcwg",
+      "event": "PLATFORM_CHANGED",
+      "regex": "/Loading Platform Manager \\[(LoadingPlatformManager_[^\\]]+)\\] Platform state changed to (\\w+)/i",
       "notes": "Built-in pattern from hangar.js parser",
       "category": "Vehicle",
       "source": "custom"
@@ -4732,6 +4640,14 @@
       "source": "custom"
     },
     {
+      "id": "cargo_elevator_pm2xjnxgl",
+      "event": "CARGO_ELEVATOR",
+      "regex": "/<CSCLoadingPlatformManager::OnLoadingPlatformStateChanged>.*?\\[LoadingPlatformManager_([^\\]]+)\\] Platform state changed to (\\w+)/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
       "id": "region_volume_k67eoar0q",
       "event": "REGION_VOLUME",
       "regex": "/entering region volume.*?'([A-Za-z][^']{3,})'/i",
@@ -4759,6 +4675,14 @@
       "id": "ocs_master_zone_0tn2i0jsv",
       "event": "OCS_MASTER_ZONE",
       "regex": "/Master zone is \\[([^\\]]+)\\]/i",
+      "notes": "Built-in pattern from navigation.js parser",
+      "category": "Navigation",
+      "source": "custom"
+    },
+    {
+      "id": "loading_platform_gq2sv3l6g",
+      "event": "LOADING_PLATFORM",
+      "regex": "/(?:\\[LoadingPlatformManager_([^\\]]+)\\]\\s+Platform state changed|Platform manager 'LoadingPlatformManager_([^']+)')/i",
       "notes": "Built-in pattern from navigation.js parser",
       "category": "Navigation",
       "source": "custom"
@@ -5563,1129 +5487,12 @@
       "addedBy": "user"
     },
     {
-      "id": "builtin_combat_actor_state_dead",
-      "name": "Actor State Dead",
-      "category": "Combat",
-      "event": "ACTOR_STATE_DEAD",
-      "regex": "/<\\\\\\[ActorState\\\\\\] Dead>\\.\\*\\?Actor '\\(\\[\\^'\\]\\+\\)'\\\\s\\*\\\\\\[\\\\d\\+\\\\\\]\\.\\*\\?from zone '\\(\\[\\^'\\]\\+\\)'\\\\s\\*\\\\\\[\\\\d\\+\\\\\\]\\.\\*\\?to zone '\\(\\[\\^'\\]\\+\\)'/i",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from combat.js parser",
-      "example": "/<\\[ActorState\\] Dead>.*?Actor '([^']+)'\\s*\\[\\d+\\].*?from zone '([^']+)'\\s*\\[\\d+\\].*?to zone '([^']+)'/i",
-      "addedBy": "user",
-      "addedDate": "2026-07-13",
-      "routing": {
-        "dashboard": true,
-        "tray": true,
-        "tactical": false,
-        "proximity": false,
-        "overlayAlert": false,
-        "fullscreen": true,
-        "audio": false,
-        "tablet": true,
-        "party": true,
-        "clip": false
-      },
-      "reaction": "",
-      "squadStatus": "none",
-      "isStateful": true,
-      "subHudLabel": "DEAD",
-      "subHudDuration": 0,
-      "stopRegex": "\\{\"type\":\"PLAYER_SPAWNED\",\"value\":\\{\"player\":\".*?\",\"location\":\".*?\"\\}\\}",
-      "stopExample": "{\"type\":\"PLAYER_SPAWNED\",\"value\":{\"player\":\"TypicallyBrit_ish\",\"location\":\"RR_CRU_LEO\"}}",
-      "ignoredTokens": [
-        {
-          "text": "/",
-          "type": "literal"
-        },
-        {
-          "text": "<\\[ActorState\\] Dead>",
-          "type": "literal"
-        },
-        {
-          "text": ".",
-          "type": "literal"
-        },
-        {
-          "text": "*",
-          "type": "literal"
-        },
-        {
-          "text": "?",
-          "type": "literal"
-        },
-        {
-          "text": "Actor",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "'",
-          "type": "literal"
-        },
-        {
-          "text": "(",
-          "type": "literal"
-        },
-        {
-          "text": "[^']",
-          "type": "literal"
-        },
-        {
-          "text": "+",
-          "type": "literal"
-        },
-        {
-          "text": ")",
-          "type": "literal"
-        },
-        {
-          "text": "'",
-          "type": "literal"
-        },
-        {
-          "text": "\\",
-          "type": "literal"
-        },
-        {
-          "text": "s",
-          "type": "literal"
-        },
-        {
-          "text": "*",
-          "type": "literal"
-        },
-        {
-          "text": "\\",
-          "type": "literal"
-        },
-        {
-          "text": "[\\d+\\]",
-          "type": "literal"
-        },
-        {
-          "text": ".",
-          "type": "literal"
-        },
-        {
-          "text": "*",
-          "type": "literal"
-        },
-        {
-          "text": "?",
-          "type": "literal"
-        },
-        {
-          "text": "from",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "zone",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "'",
-          "type": "literal"
-        },
-        {
-          "text": "(",
-          "type": "literal"
-        },
-        {
-          "text": "[^']",
-          "type": "literal"
-        },
-        {
-          "text": "+",
-          "type": "literal"
-        },
-        {
-          "text": ")",
-          "type": "literal"
-        },
-        {
-          "text": "'",
-          "type": "literal"
-        },
-        {
-          "text": "\\",
-          "type": "literal"
-        },
-        {
-          "text": "s",
-          "type": "literal"
-        },
-        {
-          "text": "*",
-          "type": "literal"
-        },
-        {
-          "text": "\\",
-          "type": "literal"
-        },
-        {
-          "text": "[\\d+\\]",
-          "type": "literal"
-        },
-        {
-          "text": ".",
-          "type": "literal"
-        },
-        {
-          "text": "*",
-          "type": "literal"
-        },
-        {
-          "text": "?",
-          "type": "literal"
-        },
-        {
-          "text": "to",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "zone",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "'",
-          "type": "literal"
-        },
-        {
-          "text": "(",
-          "type": "literal"
-        },
-        {
-          "text": "[^']",
-          "type": "literal"
-        },
-        {
-          "text": "+",
-          "type": "literal"
-        },
-        {
-          "text": ")",
-          "type": "literal"
-        },
-        {
-          "text": "'",
-          "type": "literal"
-        },
-        {
-          "text": "/",
-          "type": "literal"
-        },
-        {
-          "text": "i",
-          "type": "literal"
-        }
-      ],
-      "stopIgnoredTokens": [
-        {
-          "text": "{",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "type",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "PLAYER_SPAWNED",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ",",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "value",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "{",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "player",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "TypicallyBrit_ish",
-          "type": "ignored"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ",",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "location",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "RR_CRU_LEO",
-          "type": "ignored"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "}",
-          "type": "literal"
-        },
-        {
-          "text": "}",
-          "type": "literal"
-        }
-      ],
-      "showInSettings": true,
-      "overridesBuiltin": ""
-    },
-    {
-      "name": "Dead New",
-      "category": "Other",
-      "event": "",
-      "status": "research",
-      "regex": "<.*?> \\[Notice\\] <SHUDEvent_OnNotification> Added notification \"Standby, Local Emergency Services Are En Route: \" \\[\\d+\\] to queue\\. New queue size: 5, MissionId: \\[.*?\\], ObjectiveId: \\[\\] \\[Team_CoreGameplayFeatures\\]\\[Missions\\]\\[Comms\\]",
-      "example": "<2026-07-13T22:16:32.171Z> [Notice] <SHUDEvent_OnNotification> Added notification \"Standby, Local Emergency Services Are En Route: \" [63] to queue. New queue size: 5, MissionId: [00000000-0000-0000-0000-000000000000], ObjectiveId: [] [Team_CoreGameplayFeatures][Missions][Comms]",
-      "hue": "none",
-      "routing": {
-        "dashboard": true,
-        "tray": true,
-        "tactical": true,
-        "proximity": false,
-        "overlayAlert": false,
-        "fullscreen": false,
-        "audio": false,
-        "tablet": true,
-        "party": true
-      },
-      "warning": "",
-      "reaction": "",
-      "squadStatus": "none",
-      "notes": "",
-      "isStateful": true,
-      "subHudLabel": "DEAD",
-      "subHudDuration": 10,
-      "stopRegex": "\\{\"type\":\"PLAYER_SPAWNED\",\"value\":\\{\"player\":\".*?\",\"location\":\".*?\"\\}\\}",
-      "stopExample": "{\"type\":\"PLAYER_SPAWNED\",\"value\":{\"player\":\"TypicallyBrit_ish\",\"location\":\"RR_CRU_LEO\"}}",
-      "ignoredTokens": [
-        {
-          "text": "<2026-07-13T22:16:32.171Z>",
-          "type": "ignored"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "[Notice]",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "<SHUDEvent_OnNotification>",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "Added",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "notification",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "Standby",
-          "type": "literal"
-        },
-        {
-          "text": ",",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "Local",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "Emergency",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "Services",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "Are",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "En",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "Route",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "[63]",
-          "type": "ignored"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "to",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "queue",
-          "type": "literal"
-        },
-        {
-          "text": ".",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "New",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "queue",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "size",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "5",
-          "type": "literal"
-        },
-        {
-          "text": ",",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "MissionId",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "[00000000-0000-0000-0000-000000000000]",
-          "type": "ignored"
-        },
-        {
-          "text": ",",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "ObjectiveId",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "[",
-          "type": "literal"
-        },
-        {
-          "text": "]",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "[Team_CoreGameplayFeatures]",
-          "type": "literal"
-        },
-        {
-          "text": "[Missions]",
-          "type": "literal"
-        },
-        {
-          "text": "[Comms]",
-          "type": "literal"
-        }
-      ],
-      "stopIgnoredTokens": [
-        {
-          "text": "{",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "type",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "PLAYER_SPAWNED",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ",",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "value",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "{",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "player",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "TypicallyBrit_ish",
-          "type": "ignored"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ",",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "location",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "RR_CRU_LEO",
-          "type": "ignored"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "}",
-          "type": "literal"
-        },
-        {
-          "text": "}",
-          "type": "literal"
-        }
-      ],
-      "id": "pattern_1783981139282",
-      "addedDate": "2026-07-13",
-      "addedBy": "user"
-    },
-    {
-      "name": "I died!",
-      "category": "Other",
-      "event": "",
-      "status": "research",
-      "regex": "\\{\"type\":\"DEATH\",\"value\":\"Killed\",\"details\":\\{\"victim\":\".*?\",\"killer\":\"Unknown\",\"weapon\":\"Unknown\",\"damageType\":\"Unknown\",\"isLocalPlayer\":true,\"zone\":\"ab_int_tsg_set\",\"fromZone\":\".*?\"\\}\\}",
-      "example": "{\"type\":\"DEATH\",\"value\":\"Killed\",\"details\":{\"victim\":\"TypicallyBrit_ish\",\"killer\":\"Unknown\",\"weapon\":\"Unknown\",\"damageType\":\"Unknown\",\"isLocalPlayer\":true,\"zone\":\"ab_int_tsg_set\",\"fromZone\":\"ANVL_Arrow_722465970978\"}}",
-      "hue": "none",
-      "routing": {
-        "dashboard": true,
-        "tray": true,
-        "tactical": true,
-        "proximity": false,
-        "overlayAlert": false,
-        "fullscreen": false,
-        "audio": false,
-        "tablet": true,
-        "party": true
-      },
-      "warning": "",
-      "reaction": "YOU DIED",
-      "squadStatus": "none",
-      "notes": "",
-      "isStateful": false,
-      "subHudLabel": "DEAD",
-      "subHudDuration": 30,
-      "stopRegex": "",
-      "stopExample": "",
-      "ignoredTokens": [
-        {
-          "text": "{",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "type",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "DEATH",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ",",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "value",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "Killed",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ",",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "details",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "{",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "victim",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "TypicallyBrit_ish",
-          "type": "ignored"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ",",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "killer",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "Unknown",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ",",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "weapon",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "Unknown",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ",",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "damageType",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "Unknown",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ",",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "isLocalPlayer",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "true",
-          "type": "literal"
-        },
-        {
-          "text": ",",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "zone",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "ab_int_tsg_set",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ",",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "fromZone",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "ANVL_Arrow_722465970978",
-          "type": "ignored"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "}",
-          "type": "literal"
-        },
-        {
-          "text": "}",
-          "type": "literal"
-        }
-      ],
-      "stopIgnoredTokens": [],
-      "id": "pattern_1784334029274",
-      "addedDate": "2026-07-18",
-      "addedBy": "user"
-    },
-    {
       "name": "Helmet Off",
       "category": "Hazard",
       "event": "",
       "status": "verified",
-      "regex": "{\"type\":\"HELMET_STATE\",\"value\":\"OFF\"\\}",
-      "example": "{\"type\":\"HELMET_STATE\",\"value\":\"OFF\"}",
+      "regex": "\\[Notice\\] <AttachmentReceived> Player\\[.*?\\] Attachment\\[.*?, .*?, \\d+\\] Status\\[persistent\\] Port\\[helmethook_attach\\]",
+      "example": "",
       "hue": "none",
       "routing": {
         "dashboard": true,
@@ -6707,130 +5514,89 @@
       "overridesBuiltin": "",
       "isStateful": true,
       "subHudLabel": "HELMET OFF!",
-      "subHudDuration": 0,
-      "stopRegex": "\"HELMET_STATE\",\"value\":\"ON\"\\}",
-      "stopExample": "\"HELMET_STATE\",\"value\":\"ON\"}",
-      "ignoredTokens": [
-        {
-          "text": "{",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "type",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "HELMET_STATE",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ",",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "value",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "OFF",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "}",
-          "type": "literal"
-        }
-      ],
-      "stopIgnoredTokens": [
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "HELMET_STATE",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ",",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "value",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": ":",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "ON",
-          "type": "literal"
-        },
-        {
-          "text": "\"",
-          "type": "literal"
-        },
-        {
-          "text": "}",
-          "type": "literal"
-        }
-      ],
+      "subHudDuration": 5,
+      "stopRegex": "\\[Notice\\] <AttachmentReceived> Player\\[.*?\\] Attachment\\[.*?, .*?, \\d+\\] Status\\[persistent\\] Port\\[Armor_Helmet\\]",
+      "stopExample": "",
+      "ignoredTokens": [],
+      "stopIgnoredTokens": [],
       "id": "pattern_1784554094328",
+      "addedDate": "2026-07-20",
+      "addedBy": "user"
+    },
+    {
+      "id": "builtin_combat_player_died",
+      "name": "Player Died",
+      "category": "Combat",
+      "event": "PLAYER_DIED",
+      "regex": "/Local\\s+player\\s+died/i",
+      "status": "verified",
+      "source": "builtin",
+      "hue": "none",
+      "overlay": "none",
+      "alert": "none",
+      "warning": "",
+      "notes": "Built-in pattern from combat.js parser",
+      "example": "",
+      "addedBy": "user",
+      "addedDate": "2026-07-20",
+      "routing": {
+        "dashboard": true,
+        "tray": true,
+        "tactical": false,
+        "proximity": false,
+        "overlayAlert": false,
+        "fullscreen": false,
+        "audio": false,
+        "tablet": true,
+        "party": true,
+        "clip": false
+      },
+      "showInSettings": false,
+      "reaction": "",
+      "squadStatus": "none",
+      "overridesBuiltin": "",
+      "isStateful": false,
+      "subHudLabel": "",
+      "subHudDuration": 0,
+      "stopRegex": "",
+      "stopExample": "",
+      "ignoredTokens": [],
+      "stopIgnoredTokens": []
+    },
+    {
+      "name": "I Died",
+      "category": "Combat",
+      "event": "",
+      "status": "verified",
+      "regex": "\\[Notice\\] <SHUDEvent_OnNotification> Added notification \".*Local Emergency Services.*\" \\[\\d+\\] to queue\\.",
+      "example": "",
+      "hue": "none",
+      "routing": {
+        "dashboard": true,
+        "tray": true,
+        "tactical": true,
+        "proximity": false,
+        "overlayAlert": true,
+        "fullscreen": false,
+        "audio": false,
+        "tablet": true,
+        "party": true,
+        "clip": true
+      },
+      "showInSettings": true,
+      "warning": "",
+      "reaction": "",
+      "squadStatus": "none",
+      "notes": "",
+      "overridesBuiltin": "",
+      "isStateful": false,
+      "subHudLabel": "You Died!",
+      "subHudDuration": 20,
+      "stopRegex": "",
+      "stopExample": "",
+      "ignoredTokens": [],
+      "stopIgnoredTokens": [],
+      "id": "pattern_1784557938910",
       "addedDate": "2026-07-20",
       "addedBy": "user"
     }
