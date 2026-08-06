@@ -2,21 +2,18 @@
   "customLocations": {
     "Stanton1 Lorville": {
       "name": "Lorville",
-      "zone": "Auto",
-      "system": "Auto"
+      "type": "station",
+      "system": "Stanton",
+      "parentBody": "Hurston"
     },
     "Util Cmpd Wrhse Sml 001 Rund C Final Int": {
       "name": "Vivere PAF 03",
-      "zone": "Auto",
-      "system": "Auto"
+      "type": "outpost",
+      "system": "Stanton",
+      "parentBody": "Daymar"
     },
     "data/objectcontainers/pu/loc/mod/common/hangar/util_a/hangar_lrgtop_001_lorville/physicsgrid_objectcontainerpivot_hangar_lge_01-005.cgf": {
       "name": "Lorville Large hangar",
-      "zone": "Auto",
-      "system": "Auto"
-    },
-    "FreightElevator_Util_HangarLarge": {
-      "name": "Large Frigiht Elevator",
       "zone": "Auto",
       "system": "Auto"
     },
@@ -68,8 +65,9 @@
     },
     "Outpost_PAF_Stanton1b_Vivere_1": {
       "name": "PAF Vivere 1",
-      "zone": "Outpost",
-      "system": "Stanton"
+      "type": "station",
+      "system": "Stanton",
+      "parentBody": "Aberdeen"
     },
     "Outpost_PAF_Stanton1b_Vivere_2": {
       "name": "PAF Vivere 2",
@@ -273,11 +271,6 @@
       "system": "Auto"
     },
     "sand01_unoc_001_size05_003_int": {
-      "name": "R R H U R L2",
-      "zone": "Auto",
-      "system": "Auto"
-    },
-    "hangar_smlfrnt_001_rest_occu": {
       "name": "R R H U R L2",
       "zone": "Auto",
       "system": "Auto"
@@ -911,12 +904,6 @@
       "system": "Stanton",
       "parentBody": ""
     },
-    "LOCATION_3184339241": {
-      "name": "Pyro Quantum",
-      "type": "other",
-      "system": "Pyro",
-      "parentBody": ""
-    },
     "LOCATION_639835600": {
       "name": "Stanton Quantum",
       "type": "other",
@@ -983,12 +970,6 @@
       "system": "Stanton",
       "parentBody": "Aberdeen"
     },
-    "QuantumTravel": {
-      "name": "Quantum Travel",
-      "type": "other",
-      "system": "",
-      "parentBody": "Quantum"
-    },
     "LOCATION_2713355646": {
       "name": "Orbiting",
       "type": "moon",
@@ -1041,7 +1022,7 @@
       "name": "Levski",
       "type": "city",
       "system": "Nyx",
-      "parentBody": ""
+      "parentBody": "Glaciem Ring Cluster"
     },
     "LOCATION_3290977900": {
       "name": "Orbiting",
@@ -1057,7 +1038,7 @@
     },
     "LOCATION_3894550276": {
       "name": "Orbiting",
-      "type": "moon",
+      "type": "planet",
       "system": "Pyro",
       "parentBody": "Pyro IV"
     },
@@ -1078,6 +1059,144 @@
       "type": "space_station",
       "system": "Pyro",
       "parentBody": "Monox"
+    },
+    "LOCATION_3515131989": {
+      "name": "Ashland",
+      "type": "moon",
+      "system": "Pyro",
+      "parentBody": "Ignis"
+    },
+    "LOCATION_1490871295": {
+      "name": "RMB-Howe",
+      "type": "asteroid_station",
+      "system": "Pyro",
+      "parentBody": ""
+    },
+    "LOCATION_3272007706": {
+      "name": "RAB-Bravo",
+      "type": "asteroid_station",
+      "system": "Pyro",
+      "parentBody": ""
+    },
+    "LOCATION_2790741709": {
+      "name": "Starlight Station",
+      "type": "space_station",
+      "system": "Pyro",
+      "parentBody": "Bloom"
+    },
+    "LOCATION_1994856000": {
+      "name": "LAMINA PAF III",
+      "type": "outpost",
+      "system": "Stanton",
+      "parentBody": "Daymar"
+    },
+    "Outpost_OLP_Stanton2b_Attritus": {
+      "name": "OLP Attritus",
+      "type": "poi",
+      "system": "Stanton",
+      "parentBody": "Daymar"
+    },
+    "LOCATION_1184227259": {
+      "name": "Attritus PAF I",
+      "type": "outpost",
+      "system": "Stanton",
+      "parentBody": "Daymar"
+    },
+    "LOCATION_2517290361": {
+      "name": "Attritus PAF III",
+      "type": "outpost",
+      "system": "Stanton",
+      "parentBody": "Daymar"
+    },
+    "LOCATION_3554465802": {
+      "name": "Attritus PAF II",
+      "type": "outpost",
+      "system": "Stanton",
+      "parentBody": "Daymar"
+    },
+    "Outpost_PAF_Stanton2b_Attritus_3": {
+      "name": "Attritus PAF 3",
+      "type": "outpost",
+      "system": "Stanton",
+      "parentBody": "Daymar"
+    },
+    "Outpost_PAF_Stanton2b_Attritus_2": {
+      "name": "Attritus PAF 2",
+      "type": "outpost",
+      "system": "Stanton",
+      "parentBody": "Daymar"
+    },
+    "Outpost_PAF_Stanton2b_Attritus_1": {
+      "name": "Attritus PAF 1",
+      "type": "outpost",
+      "system": "Stanton",
+      "parentBody": "Daymar"
+    },
+    "GrimHEX": {
+      "name": "Grim Hex",
+      "type": "asteroid_station",
+      "system": "Stanton",
+      "parentBody": "Yela"
+    },
+    "LOCATION_3217811670": {
+      "name": "HDMS - Norgaard",
+      "type": "outpost",
+      "system": "Stanton",
+      "parentBody": "Aberdeen"
+    },
+    "RR_P5_L2": {
+      "name": "Gasslight",
+      "type": "space_station",
+      "system": "Pyro",
+      "parentBody": "Pyro V"
+    },
+    "hangar_smlfrnt_002_rest_rund": {
+      "name": "Hangar",
+      "type": "zone",
+      "system": "",
+      "parentBody": ""
+    },
+    "LOCATION_2013612479": {
+      "name": "Chawlas Beach",
+      "type": "planet",
+      "system": "Pyro",
+      "parentBody": "Pyro IV"
+    },
+    "LOCATION_3184339241": {
+      "name": "QUANTUM",
+      "type": "other",
+      "system": "Pyro",
+      "parentBody": ""
+    },
+    "Pyro4_Outpost_col_m_scrp_indy_001": {
+      "name": "Ignore",
+      "type": "ignore",
+      "system": "",
+      "parentBody": ""
+    },
+    "LOCATION_1942226137": {
+      "name": "Ashland",
+      "type": "moon",
+      "system": "Pyro",
+      "parentBody": "Ignis"
+    },
+    "LOCATION_1993334723": {
+      "name": "ADIR",
+      "type": "moon",
+      "system": "Pyro",
+      "parentBody": "Pyro V"
+    },
+    "LOCATION_3531251586": {
+      "name": "Entering Quantum",
+      "type": "other",
+      "system": "Pyro",
+      "parentBody": ""
+    },
+    "LOCATION_3237568713": {
+      "name": "Contested Zone",
+      "type": "contested_zone",
+      "system": "Pyro",
+      "parentBody": "Checkmate"
     }
   },
   "customShipNames": {
@@ -1619,176 +1738,6 @@
     }
   },
   "customPatterns": [
-    {
-      "id": "builtin_social_party_stream_out",
-      "name": "Party Stream Out",
-      "category": "Social",
-      "event": "PARTY_STREAM_OUT",
-      "regex": "/<CPartyMarkerComponent UFES> Streaming out party marker id (\\d+)\\. TrackedEntityId: (\\d+)/i",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from social.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
-      "id": "builtin_social_party_stream_in",
-      "name": "Party Stream In",
-      "category": "Social",
-      "event": "PARTY_STREAM_IN",
-      "regex": "/<CPartyMarkerComponent RWES> Streamed in party marker id (\\d+)\\. TrackedEntityId: (\\d+)/i",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from social.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
-      "id": "builtin_social_channel_disconnected",
-      "name": "Channel Disconnected",
-      "category": "Social",
-      "event": "CHANNEL_DISCONNECTED",
-      "regex": "/<Channel Disconnected>/i",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from social.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
-      "id": "builtin_social_channel_connected",
-      "name": "Channel Connected",
-      "category": "Social",
-      "event": "CHANNEL_CONNECTED",
-      "regex": "/<Channel Connection Complete>/i",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from social.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
-      "id": "builtin_social_channel_destroyed",
-      "name": "Channel Destroyed",
-      "category": "Social",
-      "event": "CHANNEL_DESTROYED",
-      "regex": "/<Channel Destroyed>/i",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from social.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
-      "id": "builtin_social_channel_created",
-      "name": "Channel Created",
-      "category": "Social",
-      "event": "CHANNEL_CREATED",
-      "regex": "/<Channel Created>/i",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from social.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
-      "id": "builtin_social_group_join",
-      "name": "Group Join",
-      "category": "Social",
-      "event": "GROUP_JOIN",
-      "regex": "/<Group>.*Join/i",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from social.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
-      "id": "builtin_social_group_invite",
-      "name": "Group Invite",
-      "category": "Social",
-      "event": "GROUP_INVITE",
-      "regex": "/<Group>.*Invite/i",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from social.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
-      "id": "builtin_social_social_unsubscribe",
-      "name": "Social Unsubscribe",
-      "category": "Social",
-      "event": "SOCIAL_UNSUBSCRIBE",
-      "regex": "/<UnsubscribeFromPlayerSocial> Unsubscribing from player (\\d+)/",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from social.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
-      "id": "builtin_social_social_subscribe",
-      "name": "Social Subscribe",
-      "category": "Social",
-      "event": "SOCIAL_SUBSCRIBE",
-      "regex": "/<SubscribeToPlayerSocial> Subscribing to player (\\d+)/",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from social.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
     {
       "id": "builtin_economy_shop_terminal",
       "name": "Shop Terminal",
@@ -2504,23 +2453,6 @@
       "addedDate": "2026-02-20"
     },
     {
-      "id": "builtin_combat_actor_state_dead",
-      "name": "Actor State Dead",
-      "category": "Combat",
-      "event": "ACTOR_STATE_DEAD",
-      "regex": "/<\\[ActorState\\] Dead>.*?Actor '([^']+)'\\s*\\[\\d+\\].*?from zone '([^']+)'\\s*\\[\\d+\\].*?to zone '([^']+)'/i",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from combat.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
       "id": "builtin_combat_actor_death",
       "name": "Actor Death",
       "category": "Combat",
@@ -2533,32 +2465,6 @@
       "alert": "none",
       "warning": "",
       "notes": "Built-in pattern from combat.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
-      "id": "builtin_inventory_inventory_mgmt",
-      "name": "Inventory Management",
-      "category": "Inventory",
-      "event": "INVENTORY",
-      "regex": "/<InventoryManagement>\\s+Request\\[(\\d+)\\]\\s+for\\s+'([^']+)'\\s+\\[\\d+\\]\\s+Result\\[(\\w+)\\]/i",
-      "status": "verified",
-      "source": "builtin",
-      "notes": "Inventory management pattern from inventory.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
-      "id": "builtin_inventory_main",
-      "name": "Inventory Main Pattern",
-      "category": "Inventory",
-      "event": "INVENTORY",
-      "regex": "/<([^>]+)>\\s+\\[[^\\]]+\\]\\s+<AttachmentReceived>\\s+Player\\[([^\\]]+)\\]\\s+Attachment\\[([^,\\]]+),\\s*([^,\\]]+),\\s*([^\\]]+)\\](?:[^\\n]*?Port\\[([^\\]]+)\\])?/i",
-      "status": "verified",
-      "source": "builtin",
-      "notes": "Primary pattern from inventory.js parser",
       "example": "",
       "addedBy": "system",
       "addedDate": "2026-02-20"
@@ -3159,57 +3065,6 @@
       "addedDate": "2026-02-20"
     },
     {
-      "id": "builtin_navigation_quantum_exited",
-      "name": "Quantum Exited",
-      "category": "Navigation",
-      "event": "QUANTUM_EXITED",
-      "regex": "/<Jump Drive Requesting State Change>.*to Idle/",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from navigation.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
-      "id": "builtin_navigation_quantum_entered",
-      "name": "Quantum Entered",
-      "category": "Navigation",
-      "event": "QUANTUM_ENTERED",
-      "regex": "/<Jump Drive Requesting State Change>.*to Traveling/",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from navigation.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
-      "id": "builtin_navigation_quantum_spooling",
-      "name": "Quantum Spooling",
-      "category": "Navigation",
-      "event": "QUANTUM_SPOOLING",
-      "regex": "/Successfully calculated route to/i",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from navigation.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
       "id": "builtin_navigation_location_obj",
       "name": "Location Obj",
       "category": "Navigation",
@@ -3363,57 +3218,6 @@
       "addedDate": "2026-02-20"
     },
     {
-      "id": "builtin_navigation_stamina_room_ooc",
-      "name": "Stamina Room Ooc",
-      "category": "Navigation",
-      "event": "STAMINA_ROOM_OOC",
-      "regex": "/\\[STAMINA\\]\\s+(?:\\\\t)?->\\s*RoomName:\\s*(OOC_[^\\s]+)/i",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from navigation.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
-      "id": "builtin_navigation_inventory_location_change",
-      "name": "Inventory Location Change",
-      "category": "Navigation",
-      "event": "INVENTORY_LOCATION_CHANGE",
-      "regex": "/<Update Inventory Location>\\s+Player\\s+\\[([^\\]]+)\\]\\s+is\\s+changing\\s+location\\.\\s+Landing\\s+\\[([^\\]]*)\\]\\s+->\\s+\\[([^\\]]*)\\].\\s+Location\\s+\\[(\\d+)\\]\\s+->\\s+\\[(\\d+)\\]/i",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from navigation.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
-      "id": "builtin_navigation_location_inventory",
-      "name": "Location Inventory",
-      "category": "Navigation",
-      "event": "LOCATION_INVENTORY",
-      "regex": "/<RequestLocationInventory>\\s+Player\\[[^\\]]+\\]\\s+requested inventory for Location\\[([^\\]]+)\\]/i",
-      "status": "verified",
-      "source": "builtin",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "notes": "Built-in pattern from navigation.js parser",
-      "example": "",
-      "addedBy": "system",
-      "addedDate": "2026-02-20"
-    },
-    {
       "id": "ship_enter_voip",
       "category": "Vehicle",
       "name": "Ship Enter (VOIP Join)",
@@ -3546,7 +3350,8 @@
       "warning": "",
       "notes": "Fires when leaving pilot seat, NOT the ship. Player may still be aboard.",
       "addedBy": "agent",
-      "addedDate": "2026-02-14"
+      "addedDate": "2026-02-14",
+      "lastTriggered": "2026-07-23T20:07:52.090Z"
     },
     {
       "id": "location_room",
@@ -3561,7 +3366,8 @@
       "warning": "",
       "notes": "Secondary location source. Fallback when inventory request not available.",
       "addedBy": "agent",
-      "addedDate": "2026-02-14"
+      "addedDate": "2026-02-14",
+      "lastTriggered": "2026-07-23T20:09:19.696Z"
     },
     {
       "id": "server_connected",
@@ -3591,7 +3397,8 @@
       "warning": "Entering Armistice Zone",
       "notes": "Triggers safe zone indicator on overlay.",
       "addedBy": "agent",
-      "addedDate": "2026-02-14"
+      "addedDate": "2026-02-14",
+      "lastTriggered": "2026-07-23T20:07:52.043Z"
     },
     {
       "id": "zone_armistice_leave",
@@ -3637,8 +3444,7 @@
       "hueColor": "green",
       "notes": "Fires once when player loads into the universe. Guards prevent multiple emissions.",
       "addedBy": "agent",
-      "addedDate": "2026-02-14",
-      "lastTriggered": "2026-07-21T21:19:42.763Z"
+      "addedDate": "2026-02-14"
     },
     {
       "id": "hangar_state",
@@ -3653,7 +3459,8 @@
       "warning": "",
       "notes": "States mapped: MovingPlatform*=TRANSIT, Idle*=READY, Closed*=CLOSED.",
       "addedBy": "agent",
-      "addedDate": "2026-02-14"
+      "addedDate": "2026-02-14",
+      "lastTriggered": "2026-07-23T20:07:52.039Z"
     },
     {
       "id": "spawn_set",
@@ -3746,7 +3553,8 @@
       "hueColor": "blue",
       "notes": "Notification-based detection. May need refinement.",
       "addedBy": "agent",
-      "addedDate": "2026-02-14"
+      "addedDate": "2026-02-14",
+      "lastTriggered": "2026-07-23T20:07:51.980Z"
     },
     {
       "id": "mission_updated",
@@ -3761,7 +3569,8 @@
       "warning": "",
       "notes": "Notification-based. Captures objective changes.",
       "addedBy": "agent",
-      "addedDate": "2026-02-14"
+      "addedDate": "2026-02-14",
+      "lastTriggered": "2026-07-23T20:08:24.347Z"
     },
     {
       "id": "quantum_travel",
@@ -3776,212 +3585,8 @@
       "warning": "",
       "notes": "Speculative. Needs verification against real QT log lines.",
       "addedBy": "agent",
-      "addedDate": "2026-02-14"
-    },
-    {
-      "id": "fire_extinguisher",
-      "category": "Inventory",
-      "name": "Fire Extinguisher (Inventory)",
-      "status": "verified",
-      "regex": "kegr_fire_extinguisher",
-      "example": "<AttachmentReceived> Player[Name] Attachment[kegr_fire_extinguisher_01_9433658186907...]",
-      "event": "NONE",
-      "alert": "none",
-      "reaction": "",
-      "warning": "",
-      "notes": "Inventory noise. Explicitly excluded from fire detection.",
-      "addedBy": "agent",
-      "addedDate": "2026-02-15"
-    },
-    {
-      "name": "Inventory",
-      "category": "Inventory",
-      "event": "",
-      "status": "research",
-      "regex": "<.*?> \\[Notice\\] <InventoryManagement> Request\\[\\d+\\] Player\\[.*?\\] Result\\[succeed\\] Elapsed\\[\\d+\\.\\d+\\] \\[Team_CoreGameplayFeatures\\]\\[Inventory\\]",
-      "example": "<2026-07-10T12:53:49.081Z> [Notice] <InventoryManagement> Request[32] Player[TypicallyBrit_ish] Result[succeed] Elapsed[0.127994] [Team_CoreGameplayFeatures][Inventory]",
-      "hue": "none",
-      "overlay": "none",
-      "alert": "none",
-      "warning": "",
-      "reaction": "",
-      "notes": "Hub message when inventory open",
-      "isStateful": true,
-      "subHudLabel": "INVENTORY OPEN",
-      "subHudDuration": 0,
-      "stopRegex": "<.*?> \\[Notice\\] <Remove Inventory Container UI> Player\\[.*?\\] inventory \\[.*?\\] removed from UI \\[Team_CoreGameplayFeatures\\]\\[Inventory\\]",
-      "stopExample": "<2026-07-10T12:40:02.593Z> [Notice] <Remove Inventory Container UI> Player[TypicallyBrit_ish] inventory [685855500901:Container:0] removed from UI [Team_CoreGameplayFeatures][Inventory]",
-      "id": "pattern_1783691233125",
-      "addedDate": "2026-07-10",
-      "addedBy": "user",
-      "ignoredTokens": [
-        {
-          "text": "<2026-07-10T12:53:49.081Z>",
-          "type": "ignored"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "[Notice]",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "<InventoryManagement>",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "Request",
-          "type": "literal"
-        },
-        {
-          "text": "[32]",
-          "type": "ignored"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "Player",
-          "type": "literal"
-        },
-        {
-          "text": "[TypicallyBrit_ish]",
-          "type": "ignored"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "Result",
-          "type": "literal"
-        },
-        {
-          "text": "[succeed]",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "Elapsed",
-          "type": "literal"
-        },
-        {
-          "text": "[0.127994]",
-          "type": "ignored"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "[Team_CoreGameplayFeatures]",
-          "type": "literal"
-        },
-        {
-          "text": "[Inventory]",
-          "type": "literal"
-        }
-      ],
-      "stopIgnoredTokens": [
-        {
-          "text": "<2026-07-10T12:40:02.593Z>",
-          "type": "ignored"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "[Notice]",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "<Remove Inventory Container UI>",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "Player",
-          "type": "literal"
-        },
-        {
-          "text": "[TypicallyBrit_ish]",
-          "type": "ignored"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "inventory",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "[685855500901:Container:0]",
-          "type": "ignored"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "removed",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "from",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "UI",
-          "type": "literal"
-        },
-        {
-          "text": " ",
-          "type": "literal"
-        },
-        {
-          "text": "[Team_CoreGameplayFeatures]",
-          "type": "literal"
-        },
-        {
-          "text": "[Inventory]",
-          "type": "literal"
-        }
-      ]
+      "addedDate": "2026-02-14",
+      "lastTriggered": "2026-07-23T20:09:43.117Z"
     },
     {
       "id": "party_stream_out_ygfdposbk",
@@ -4125,7 +3730,8 @@
       "regex": "/<CLocalMissionPhaseMarker::CreateMarker>.*?missionId\\s+\\[([^\\]]+)\\].*?contract\\s+\\[([^\\]]+)\\]/i",
       "notes": "Built-in pattern from mission.js parser",
       "category": "Mission",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:07:51.960Z"
     },
     {
       "id": "mission_engine_stop_vpag4tlpr",
@@ -4157,7 +3763,8 @@
       "regex": "/ObjectiveId:\\s*\\[([^\\]]*)\\]/i",
       "notes": "Built-in pattern from mission.js parser",
       "category": "Mission",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:10:01.310Z"
     },
     {
       "id": "notification_mission_id_mn64dqlay",
@@ -4165,7 +3772,8 @@
       "regex": "/MissionId:\\s*\\[([^\\]]+)\\]/i",
       "notes": "Built-in pattern from mission.js parser",
       "category": "Mission",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:10:01.310Z"
     },
     {
       "id": "mobiglas_accept_rz0fcsya9",
@@ -4181,7 +3789,8 @@
       "regex": "/(?:Added notification \"New Objective:\\s*|Notification \"New Objective:\\s*|(?:\\s*|^)\"New Objective:\\s*)([^\"]+)\"\\s*(?:\\[(\\d+)\\])?/i",
       "notes": "Built-in pattern from mission.js parser",
       "category": "Mission",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:07:51.980Z"
     },
     {
       "id": "contract_failed_2dkwhlzar",
@@ -4205,7 +3814,8 @@
       "regex": "/(?:Added notification \"Contract Accepted:\\s*|Notification \"Contract Accepted:\\s*|(?:\\s*|^)\"Contract Accepted:\\s*)([^\"]+)\"\\s*(?:\\[(\\d+)\\])?/i",
       "notes": "Built-in pattern from mission.js parser",
       "category": "Mission",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:07:51.980Z"
     },
     {
       "id": "objective_upserted_id_0z0zm91jj",
@@ -4213,7 +3823,8 @@
       "regex": "/<ObjectiveUpserted>.*?mission_id\\s+(\\S+).*?objective_id\\s+(\\S+)/i",
       "notes": "Built-in pattern from mission.js parser",
       "category": "Mission",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:08:24.351Z"
     },
     {
       "id": "update_active_objective_5nbqx056o",
@@ -4221,7 +3832,8 @@
       "regex": "/<CMissionLogEntry::UpdateActiveObjective>.*?\\[Text=([^\\]]+)\\]/i",
       "notes": "Built-in pattern from mission.js parser",
       "category": "Mission",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:08:24.350Z"
     },
     {
       "id": "mission_objective_tag_budtjxeq4",
@@ -4229,7 +3841,8 @@
       "regex": "/<ObjectiveUpserted>/",
       "notes": "Built-in pattern from mission.js parser",
       "category": "Mission",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:08:24.351Z"
     },
     {
       "id": "mission_ended_tag_8k8tf5qxn",
@@ -4408,28 +4021,13 @@
       "source": "custom"
     },
     {
-      "id": "inventory_3ba8uedzh",
-      "event": "INVENTORY",
-      "regex": "/<InventoryManagement>\\s+Request\\[(\\d+)\\]\\s+for\\s+'([^']+)'\\s+\\[\\d+\\]\\s+Result\\[(\\w+)\\]/i",
-      "notes": "Inventory management pattern from inventory.js parser",
-      "category": "Inventory",
-      "source": "custom"
-    },
-    {
-      "id": "inventory_6p75s1x7g",
-      "event": "INVENTORY",
-      "regex": "/<([^>]+)>\\s+\\[[^\\]]+\\]\\s+<AttachmentReceived>\\s+Player\\[([^\\]]+)\\]\\s+Attachment\\[([^,\\]]+),\\s*([^,\\]]+),\\s*([^\\]]+)\\](?:[^\\n]*?Port\\[([^\\]]+)\\])?/i",
-      "notes": "Primary pattern from inventory.js parser",
-      "category": "Inventory",
-      "source": "custom"
-    },
-    {
       "id": "starmap_route_4vq12vwrz",
       "event": "STARMAP_ROUTE",
       "regex": "/Failed to get starmap route data!.*?\\s*\\|\\s*([A-Za-z0-9_]+)\\[\\d+\\]/i",
       "notes": "Built-in pattern from vehicle.js parser",
       "category": "Vehicle",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:09:41.095Z"
     },
     {
       "id": "asop_access_p3fdwxv19",
@@ -4469,7 +4067,8 @@
       "regex": "/ClearDriver.*releasing control token for '([^']+)'/",
       "notes": "Built-in pattern from vehicle.js parser",
       "category": "Vehicle",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:07:52.090Z"
     },
     {
       "id": "voip_join_tqklkl8gw",
@@ -4485,7 +4084,8 @@
       "regex": "/(?:Added notification \"Hangar Request Completed:\\s*|Notification \"Hangar Request Completed:\\s*|(?:\\s*|^)\"Hangar Request Completed:\\s*)([^\"]*)\"/i",
       "notes": "Built-in pattern from hangar.js parser",
       "category": "Vehicle",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:07:52.003Z"
     },
     {
       "id": "atc_assigned_meg0l8xqt",
@@ -4501,7 +4101,8 @@
       "regex": "/Loading Platform Manager \\[(LoadingPlatformManager_[^\\]]+)\\] Platform state changed to (\\w+)/i",
       "notes": "Built-in pattern from hangar.js parser",
       "category": "Vehicle",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:09:20.567Z"
     },
     {
       "id": "platform_state_ur8exqjv2",
@@ -4584,28 +4185,13 @@
       "source": "custom"
     },
     {
-      "id": "updateinventorylocationregex_58frn2xu4",
-      "event": "UPDATEINVENTORYLOCATIONREGEX",
-      "regex": "/Update Inventory Location.*Landing \\[(\\d+)\\] -> \\[(\\d+)\\].*Location \\[(\\d+)\\] -> \\[(\\d+)\\]/",
-      "notes": "Built-in pattern from navigation.js parser",
-      "category": "Navigation",
-      "source": "custom"
-    },
-    {
-      "id": "requestlocationregex_fwxibqrhr",
-      "event": "REQUESTLOCATIONREGEX",
-      "regex": "/RequestLocationInventory.*Location\\[(.*?)\\]/",
-      "notes": "Built-in pattern from navigation.js parser",
-      "category": "Navigation",
-      "source": "custom"
-    },
-    {
       "id": "planetcellsregex_q5ctsjvaw",
       "event": "PLANETCELLSREGEX",
       "regex": "/planet cells:\\s+(\\d+)\\s+\\[\\s*\\d+\\]\\s+meshes:\\s+(\\d+)\\s+\\[\\s*\\d+\\]\\s+name:\\s+(\\S+)/",
       "notes": "Built-in pattern from navigation.js parser",
       "category": "Navigation",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:07:52.038Z"
     },
     {
       "id": "quantumarrivedregex_nmgb7uvuf",
@@ -4613,7 +4199,8 @@
       "regex": "/Quantum Drive Arrived - Arrived at Final Destination/",
       "notes": "Built-in pattern from navigation.js parser",
       "category": "Navigation",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:07:52.082Z"
     },
     {
       "id": "routesuccessregex_sienhssxe",
@@ -4621,7 +4208,8 @@
       "regex": "/Successfully calculated route to ([^\\s]+) fuel estimate ([\\d.]+)/",
       "notes": "Built-in pattern from navigation.js parser",
       "category": "Navigation",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:09:43.117Z"
     },
     {
       "id": "routestartregex_u2sj3c9i7",
@@ -4629,7 +4217,8 @@
       "regex": "/Projected Start Location is (.*?) for route to destination ([^\\s]+)/",
       "notes": "Built-in pattern from navigation.js parser",
       "category": "Navigation",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:09:43.116Z"
     },
     {
       "id": "stamina_suffocation_y4lj9gjkj",
@@ -4645,7 +4234,8 @@
       "regex": "/<CSCLoadingPlatformManager::OnLoadingPlatformStateChanged>.*?\\[LoadingPlatformManager_([^\\]]+)\\] Platform state changed to (\\w+)/i",
       "notes": "Built-in pattern from navigation.js parser",
       "category": "Navigation",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:09:20.567Z"
     },
     {
       "id": "region_volume_k67eoar0q",
@@ -4677,7 +4267,8 @@
       "regex": "/Master zone is \\[([^\\]]+)\\]/i",
       "notes": "Built-in pattern from navigation.js parser",
       "category": "Navigation",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:09:22.630Z"
     },
     {
       "id": "loading_platform_gq2sv3l6g",
@@ -4685,7 +4276,8 @@
       "regex": "/(?:\\[LoadingPlatformManager_([^\\]]+)\\]\\s+Platform state changed|Platform manager 'LoadingPlatformManager_([^']+)')/i",
       "notes": "Built-in pattern from navigation.js parser",
       "category": "Navigation",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:09:23.501Z"
     },
     {
       "id": "interdiction_x5iopxese",
@@ -4701,7 +4293,8 @@
       "regex": "/<Quantum Drive Arrived/",
       "notes": "Built-in pattern from navigation.js parser",
       "category": "Navigation",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:07:52.082Z"
     },
     {
       "id": "quantum_exited_sdc5tk79b",
@@ -4725,7 +4318,8 @@
       "regex": "/Successfully calculated route to/i",
       "notes": "Built-in pattern from navigation.js parser",
       "category": "Navigation",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:09:43.117Z"
     },
     {
       "id": "location_obj_45xy4l985",
@@ -4733,7 +4327,8 @@
       "regex": "/<StatObjLoad\\s+0x[0-9A-Fa-f]+\\s+Format>\\s+'[^']*?objectcontainers\\/pu\\/loc\\/(?:flagship|mod)\\/(?:stanton\\/)?(?:station\\/ser\\/)?(?:[^\\/]+\\/)*([^\\/]{5,})\\//i",
       "notes": "Built-in pattern from navigation.js parser",
       "category": "Navigation",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:07:52.079Z"
     },
     {
       "id": "generated_location_xttdeafnj",
@@ -4741,7 +4336,8 @@
       "regex": "/<GenerateLocationProperty>.*?locations:\\s*((?:\\([^)]+\\))+)/i",
       "notes": "Built-in pattern from navigation.js parser",
       "category": "Navigation",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:09:41.054Z"
     },
     {
       "id": "location_generic_tp49t5gbm",
@@ -4749,7 +4345,8 @@
       "regex": "/Location\\[([^\\]]+)\\]/i",
       "notes": "Built-in pattern from navigation.js parser",
       "category": "Navigation",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:08:17.941Z"
     },
     {
       "id": "armistice_leave_qm948aa6e",
@@ -4757,7 +4354,8 @@
       "regex": "/Added notification \"Leaving Armistice Zone/i",
       "notes": "Built-in pattern from navigation.js parser",
       "category": "Navigation",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:07:52.025Z"
     },
     {
       "id": "armistice_enter_nl0szx4s8",
@@ -4765,7 +4363,8 @@
       "regex": "/Added notification \"Entering Armistice Zone/i",
       "notes": "Built-in pattern from navigation.js parser",
       "category": "Navigation",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:07:52.003Z"
     },
     {
       "id": "monitored_space_ei3fgjwf5",
@@ -4773,7 +4372,8 @@
       "regex": "/Added notification \"Entered Monitored Space/i",
       "notes": "Built-in pattern from navigation.js parser",
       "category": "Navigation",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:07:52.043Z"
     },
     {
       "id": "jurisdiction_enlzr7b9r",
@@ -4781,7 +4381,8 @@
       "regex": "/Added notification \"Entered\\s+(.*?)\\s*Jurisdiction/i",
       "notes": "Built-in pattern from navigation.js parser",
       "category": "Navigation",
-      "source": "custom"
+      "source": "custom",
+      "lastTriggered": "2026-07-23T20:10:01.310Z"
     },
     {
       "id": "join_pu_zcw40halo",
@@ -4803,14 +4404,6 @@
       "id": "stamina_room_ooc_p2neccdzd",
       "event": "STAMINA_ROOM_OOC",
       "regex": "/\\[STAMINA\\]\\s+(?:\\\\t)?->\\s*RoomName:\\s*(OOC_[^\\s]+)/i",
-      "notes": "Built-in pattern from navigation.js parser",
-      "category": "Navigation",
-      "source": "custom"
-    },
-    {
-      "id": "location_inventory_2bx8ko6zh",
-      "event": "LOCATION_INVENTORY",
-      "regex": "/<RequestLocationInventory>\\s+Player\\[[^\\]]+\\]\\s+requested inventory for Location\\[([^\\]]+)\\]/i",
       "notes": "Built-in pattern from navigation.js parser",
       "category": "Navigation",
       "source": "custom"
@@ -5333,7 +4926,8 @@
       "stopIgnoredTokens": [],
       "id": "pattern_1783821614888",
       "addedDate": "2026-07-12",
-      "addedBy": "user"
+      "addedBy": "user",
+      "lastTriggered": "2026-07-23T20:09:35.022Z"
     },
     {
       "name": "Dehydrated",
@@ -5499,7 +5093,7 @@
         "tray": true,
         "tactical": true,
         "proximity": false,
-        "overlayAlert": true,
+        "overlayAlert": false,
         "fullscreen": true,
         "audio": false,
         "tablet": true,
@@ -5599,6 +5193,175 @@
       "id": "pattern_1784557938910",
       "addedDate": "2026-07-20",
       "addedBy": "user"
+    },
+    {
+      "id": "builtin_social_party_stream_out",
+      "name": "Party Member Left System",
+      "category": "Social",
+      "event": "PARTY_STREAM_OUT",
+      "regex": "/<CPartyMarkerComponent UFES> Streaming out party marker id (\\d+)\\. TrackedEntityId: (\\d+)/i",
+      "status": "verified",
+      "source": "builtin",
+      "hue": "none",
+      "overlay": "none",
+      "alert": "none",
+      "warning": "",
+      "notes": "Built-in pattern from social.js parser",
+      "example": "",
+      "addedBy": "user",
+      "addedDate": "2026-07-23",
+      "routing": {
+        "dashboard": true,
+        "tray": true,
+        "tactical": false,
+        "proximity": false,
+        "overlayAlert": false,
+        "fullscreen": false,
+        "audio": false,
+        "tablet": true,
+        "party": true,
+        "clip": false
+      },
+      "showInSettings": false,
+      "reaction": "",
+      "squadStatus": "none",
+      "overridesBuiltin": "",
+      "isStateful": false,
+      "subHudLabel": "",
+      "subHudDuration": 0,
+      "stopRegex": "",
+      "stopExample": "",
+      "ignoredTokens": [],
+      "stopIgnoredTokens": []
+    },
+    {
+      "id": "builtin_social_party_stream_in",
+      "name": "Party Member Entered System",
+      "category": "Social",
+      "event": "PARTY_STREAM_IN",
+      "regex": "/<CPartyMarkerComponent RWES> Streamed in party marker id (\\d+)\\. TrackedEntityId: (\\d+)/i",
+      "status": "verified",
+      "source": "builtin",
+      "hue": "none",
+      "overlay": "none",
+      "alert": "none",
+      "warning": "",
+      "notes": "Built-in pattern from social.js parser",
+      "example": "",
+      "addedBy": "user",
+      "addedDate": "2026-07-23",
+      "routing": {
+        "dashboard": true,
+        "tray": true,
+        "tactical": false,
+        "proximity": false,
+        "overlayAlert": false,
+        "fullscreen": false,
+        "audio": false,
+        "tablet": true,
+        "party": true,
+        "clip": false
+      },
+      "showInSettings": false,
+      "reaction": "",
+      "squadStatus": "none",
+      "overridesBuiltin": "",
+      "isStateful": false,
+      "subHudLabel": "",
+      "subHudDuration": 0,
+      "stopRegex": "",
+      "stopExample": "",
+      "ignoredTokens": [],
+      "stopIgnoredTokens": []
+    },
+    {
+      "id": "location_inventory",
+      "category": "Navigation",
+      "name": "Location (Inventory Request)",
+      "status": "verified",
+      "regex": "<RequestLocationInventory>.*Location\\[([^\\]]+)\\]",
+      "example": "<RequestLocationInventory> Player[TypicallyBrit_ish] requested inventory for Location[RR_HUR_LEO]",
+      "event": "NONE",
+      "alert": "none",
+      "reaction": "",
+      "warning": "",
+      "notes": "Primary location tracking method. Raw code needs custom mapping for friendly names.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-14"
+    },
+    {
+      "id": "suffocating",
+      "category": "Hazard",
+      "name": "Suffocating",
+      "status": "research",
+      "regex": "Player.*started suffocating",
+      "example": "Player [PlayerName] started suffocating",
+      "event": "STATUS",
+      "alert": "both",
+      "reaction": "",
+      "warning": "Suffocating",
+      "hueColor": "red",
+      "notes": "Triggers full-screen blue vignette alert.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-14"
+    },
+    {
+      "id": "depressurizing",
+      "category": "Hazard",
+      "name": "Depressurizing",
+      "status": "research",
+      "regex": "Player.*started depressurization",
+      "example": "Player [PlayerName] started depressurization",
+      "event": "STATUS",
+      "alert": "both",
+      "reaction": "",
+      "warning": "Depressurizing",
+      "notes": "Hull breach detection. Triggers full-screen alert.",
+      "addedBy": "agent",
+      "addedDate": "2026-02-14"
+    },
+    {
+      "id": "actor_incapacitated",
+      "category": "Combat",
+      "name": "Player Incapacitated",
+      "status": "verified",
+      "regex": "Added notification \"Standby, Local Emergency Services Are En Route",
+      "example": "<2026-07-20T11:53:22.056Z> [Notice] <SHUDEvent_OnNotification> Added notification \"Standby, Local Emergency Services Are En Route: \" [3] to queue.",
+      "event": "DEATH",
+      "alert": "both",
+      "reaction": "",
+      "warning": "INCAPACITATED",
+      "notes": "Fires when the player enters incapacitated state, acting as a fallback death trigger.",
+      "addedBy": "agent",
+      "addedDate": "2026-07-20"
+    },
+    {
+      "id": "inventory_open",
+      "category": "Inventory",
+      "name": "Inventory Opened",
+      "status": "verified",
+      "regex": "Player\\[{player}\\].*?Caller\\[CSCLocalPlayerPersonalThoughtComponent::RequestInventoryData\\]",
+      "example": "<2026-07-20T11:53:18.966Z> [Notice] <Add Inventory Management Move> New request[5] Player[TypicallyBrit_ish] Type[QueryInventory] ... Caller[CSCLocalPlayerPersonalThoughtComponent::RequestInventoryData] [Team_CoreGameplayFeatures][Inventory]",
+      "event": "STATUS",
+      "message": "inventory",
+      "alert": "none",
+      "notes": "Tracks when the player opens their inventory window.",
+      "addedBy": "agent",
+      "addedDate": "2026-07-20"
+    },
+    {
+      "id": "inventory_close",
+      "category": "Inventory",
+      "name": "Inventory Closed",
+      "status": "verified",
+      "regex": "<Close Inventory Grid> Player\\[{player}\\]",
+      "example": "<2026-07-20T11:53:20.866Z> [Notice] <Close Inventory Grid> Player[TypicallyBrit_ish] closing inventory in progress...",
+      "event": "STATUS",
+      "message": "normal",
+      "alert": "none",
+      "notes": "Tracks when the player closes their inventory window.",
+      "addedBy": "agent",
+      "addedDate": "2026-07-20"
     }
   ],
   "patternOverrides": {
